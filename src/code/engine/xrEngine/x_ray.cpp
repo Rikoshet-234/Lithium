@@ -25,7 +25,9 @@
 
 //---------------------------------------------------------------------
 ENGINE_API CInifile* pGameIni = nullptr;
-BOOL g_bIntroFinished = FALSE;
+
+ENGINE_API BOOL g_bIntroFinished = FALSE;
+
 extern void Intro(void* fn);
 extern void Intro_DSHOW(void* fn);
 extern int PASCAL IntroDSHOW_wnd(HINSTANCE hInstC, HINSTANCE hInstP, LPSTR lpCmdLine, int nCmdShow);
@@ -48,7 +50,8 @@ static int start_day = 31;    // 31
 static int start_month = 1;   // January
 static int start_year = 1999; // 1999
 
-void compute_build_id() {
+ENGINE_API void compute_build_id()
+{
     build_date = __DATE__;
 
     int days;
@@ -91,17 +94,17 @@ struct _SoundProcessor : public pureFrame {
 
 //////////////////////////////////////////////////////////////////////////
 // global variables
-ENGINE_API CApplication* pApp = NULL;
 static HWND logoWindow = NULL;
-
-int doLauncher();
-void doBenchmark(LPCSTR name);
-ENGINE_API bool g_bBenchmark = false;
-string512 g_sBenchmarkName;
 
 ENGINE_API string512 g_sLaunchOnExit_params;
 ENGINE_API string512 g_sLaunchOnExit_app;
 ENGINE_API string_path g_sLaunchWorkingFolder;
+ENGINE_API CApplication* pApp = nullptr;
+ENGINE_API bool g_bBenchmark = false;
+
+int doLauncher();
+void doBenchmark(LPCSTR name);
+string512 g_sBenchmarkName;
 // -------------------------------------------
 // startup point
 void InitEngine() {
@@ -146,7 +149,6 @@ PROTECT_API void InitConsole() {
 
 PROTECT_API void InitInput() {
     BOOL bCaptureInput = !strstr(Core.Params, "-i");
-
     pInput = xr_new<CInput>(bCaptureInput);
 }
 void destroyInput() { xr_delete(pInput); }
@@ -208,7 +210,7 @@ void CheckPrivilegySlowdown() {
 #endif // DEBUG
 }
 
-void Startup() {
+ENGINE_API void Startup() {
     InitSound1();
     execUserScript();
     InitSound2();
@@ -269,6 +271,67 @@ void Startup() {
     destroyEngine();
 }
 
+ENGINE_API void StartupEx() {
+	InitSound1();
+	execUserScript();
+	InitSound2();
+
+	// ...command line for auto start
+	{
+		LPCSTR pStartup = strstr(Core.Params, "-start ");
+		if (pStartup)
+			Console->Execute(pStartup + 1);
+	}
+	{
+		LPCSTR pStartup = strstr(Core.Params, "-load ");
+		if (pStartup)
+			Console->Execute(pStartup + 1);
+	}
+
+	// Initialize APP
+	//ShowWindow(Device.m_hWnd, SW_SHOWNORMAL);
+	Device.CreateEx();
+
+	LALib.OnCreate();
+	pApp = xr_new<CApplication>();
+	g_pGamePersistent = (IGame_Persistent*)NEW_INSTANCE(CLSID_GAME_PERSISTANT);
+	g_SpatialSpace = xr_new<ISpatial_DB>();
+	g_SpatialSpacePhysic = xr_new<ISpatial_DB>();
+
+	// Destroy LOGO
+	DestroyWindow(logoWindow);
+	logoWindow = NULL;
+
+	// Main cycle
+	Memory.mem_usage();
+	Device.Run();
+
+	// Destroy APP
+	xr_delete(g_SpatialSpacePhysic);
+	xr_delete(g_SpatialSpace);
+	DEL_INSTANCE(g_pGamePersistent);
+	xr_delete(pApp);
+	Engine.Event.Dump();
+
+	// Destroying
+	//.	destroySound();
+	destroyInput();
+
+	if (!g_bBenchmark)
+		destroySettings();
+
+	LALib.OnDestroy();
+
+	if (!g_bBenchmark)
+		destroyConsole();
+	else
+		Console->Destroy();
+
+	destroySound();
+
+	destroyEngine();
+}
+
 static INT_PTR CALLBACK logDlgProc(HWND hw, UINT msg, WPARAM wp, LPARAM lp) {
     switch (msg) {
     case WM_DESTROY:
@@ -285,181 +348,115 @@ static INT_PTR CALLBACK logDlgProc(HWND hw, UINT msg, WPARAM wp, LPARAM lp) {
     }
     return TRUE;
 }
-/*
-void	test_rtc	()
-{
-        CStatTimer		tMc,tM,tC,tD;
-        u32				bytes=0;
-        tMc.FrameStart	();
-        tM.FrameStart	();
-        tC.FrameStart	();
-        tD.FrameStart	();
-        ::Random.seed	(0x12071980);
-        for		(u32 test=0; test<10000; test++)
-        {
-                u32			in_size			= ::Random.randI(1024,256*1024);
-                u32			out_size_max	= rtc_csize		(in_size);
-                u8*			p_in			= xr_alloc<u8>	(in_size);
-                u8*			p_in_tst		= xr_alloc<u8>	(in_size);
-                u8*			p_out			= xr_alloc<u8>	(out_size_max);
-                for (u32 git=0; git<in_size; git++)			p_in[git] =
-(u8)::Random.randI	(8);	// garbage bytes		+= in_size;
 
-                tMc.Begin	();
-                memcpy		(p_in_tst,p_in,in_size);
-                tMc.End		();
-
-                tM.Begin	();
-                CopyMemory(p_in_tst,p_in,in_size);
-                tM.End		();
-
-                tC.Begin	();
-                u32			out_size		= rtc_compress
-(p_out,out_size_max,p_in,in_size); tC.End		();
-
-                tD.Begin	();
-                u32			in_size_tst		=
-rtc_decompress(p_in_tst,in_size,p_out,out_size); tD.End		();
-
-                // sanity check
-                R_ASSERT	(in_size == in_size_tst);
-                for (u32 tit=0; tit<in_size; tit++)			R_ASSERT(p_in[tit] ==
-p_in_tst[tit]);	// garbage
-
-                xr_free		(p_out);
-                xr_free		(p_in_tst);
-                xr_free		(p_in);
-        }
-        tMc.FrameEnd	();	float rMc		=
-1000.f*(float(bytes)/tMc.result)/(1024.f*1024.f); tM.FrameEnd		(); float rM		=
-1000.f*(float(bytes)/tM.result)/(1024.f*1024.f); tC.FrameEnd		(); float rC
-= 1000.f*(float(bytes)/tC.result)/(1024.f*1024.f); tD.FrameEnd		(); float rD		=
-1000.f*(float(bytes)/tD.result)/(1024.f*1024.f); Msg				("* memcpy:
-%5.2f M/s (%3.1f%%)",rMc,100.f*rMc/rMc); Msg				("* mm-memcpy:     %5.2f M/s
-(%3.1f%%)",rM,100.f*rM/rMc); Msg				("* compression:   %5.2f M/s
-(%3.1f%%)",rC,100.f*rC/rMc); Msg				("* decompression: %5.2f M/s
-(%3.1f%%)",rD,100.f*rD/rMc);
-}
-*/
-extern void testbed(void);
-
-// video
-/*
-static	HINSTANCE	g_hInstance		;
-static	HINSTANCE	g_hPrevInstance	;
-static	int			g_nCmdShow		;
-void	__cdecl		intro_dshow_x	(void*)
-{
-        IntroDSHOW_wnd
-(g_hInstance,g_hPrevInstance,"GameData\\Stalker_Intro.avi",g_nCmdShow); g_bIntroFinished	=
-TRUE	;
-}
-*/
+//TODO: [Li] Move to external file
 #define dwStickyKeysStructSize sizeof(STICKYKEYS)
 #define dwFilterKeysStructSize sizeof(FILTERKEYS)
 #define dwToggleKeysStructSize sizeof(TOGGLEKEYS)
 
-struct damn_keys_filter {
-    BOOL bScreenSaverState;
+struct damn_keys_filter
+{
+	BOOL bScreenSaverState;
 
-    // Sticky & Filter & Toggle keys
+	// Sticky & Filter & Toggle keys
 
-    STICKYKEYS StickyKeysStruct;
-    FILTERKEYS FilterKeysStruct;
-    TOGGLEKEYS ToggleKeysStruct;
+	STICKYKEYS StickyKeysStruct;
+	FILTERKEYS FilterKeysStruct;
+	TOGGLEKEYS ToggleKeysStruct;
 
-    DWORD dwStickyKeysFlags;
-    DWORD dwFilterKeysFlags;
-    DWORD dwToggleKeysFlags;
+	DWORD dwStickyKeysFlags;
+	DWORD dwFilterKeysFlags;
+	DWORD dwToggleKeysFlags;
 
-    damn_keys_filter() {
-        // Screen saver stuff
+	damn_keys_filter()
+	{
+		// Screen saver stuff
+		bScreenSaverState = FALSE;
 
-        bScreenSaverState = FALSE;
+		// Saveing current state
+		SystemParametersInfo(SPI_GETSCREENSAVEACTIVE, 0, (PVOID)&bScreenSaverState, 0);
 
-        // Saveing current state
-        SystemParametersInfo(SPI_GETSCREENSAVEACTIVE, 0, (PVOID)&bScreenSaverState, 0);
+		if (bScreenSaverState)
+			// Disable screensaver
+			SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, FALSE, NULL, 0);
 
-        if (bScreenSaverState)
-            // Disable screensaver
-            SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, FALSE, NULL, 0);
+		dwStickyKeysFlags = 0;
+		dwFilterKeysFlags = 0;
+		dwToggleKeysFlags = 0;
 
-        dwStickyKeysFlags = 0;
-        dwFilterKeysFlags = 0;
-        dwToggleKeysFlags = 0;
+		std::memset(&StickyKeysStruct, 0, dwStickyKeysStructSize);
+		std::memset(&FilterKeysStruct, 0, dwFilterKeysStructSize);
+		std::memset(&ToggleKeysStruct, 0, dwToggleKeysStructSize);
 
-        std::memset(&StickyKeysStruct, 0, dwStickyKeysStructSize);
-        std::memset(&FilterKeysStruct, 0, dwFilterKeysStructSize);
-        std::memset(&ToggleKeysStruct, 0, dwToggleKeysStructSize);
+		StickyKeysStruct.cbSize = dwStickyKeysStructSize;
+		FilterKeysStruct.cbSize = dwFilterKeysStructSize;
+		ToggleKeysStruct.cbSize = dwToggleKeysStructSize;
 
-        StickyKeysStruct.cbSize = dwStickyKeysStructSize;
-        FilterKeysStruct.cbSize = dwFilterKeysStructSize;
-        ToggleKeysStruct.cbSize = dwToggleKeysStructSize;
+		// Saving current state
+		SystemParametersInfo(SPI_GETSTICKYKEYS, dwStickyKeysStructSize, (PVOID)&StickyKeysStruct,
+			0);
+		SystemParametersInfo(SPI_GETFILTERKEYS, dwFilterKeysStructSize, (PVOID)&FilterKeysStruct,
+			0);
+		SystemParametersInfo(SPI_GETTOGGLEKEYS, dwToggleKeysStructSize, (PVOID)&ToggleKeysStruct,
+			0);
 
-        // Saving current state
-        SystemParametersInfo(SPI_GETSTICKYKEYS, dwStickyKeysStructSize, (PVOID)&StickyKeysStruct,
-                             0);
-        SystemParametersInfo(SPI_GETFILTERKEYS, dwFilterKeysStructSize, (PVOID)&FilterKeysStruct,
-                             0);
-        SystemParametersInfo(SPI_GETTOGGLEKEYS, dwToggleKeysStructSize, (PVOID)&ToggleKeysStruct,
-                             0);
+		if (StickyKeysStruct.dwFlags & SKF_AVAILABLE) {
+			// Disable StickyKeys feature
+			dwStickyKeysFlags = StickyKeysStruct.dwFlags;
+			StickyKeysStruct.dwFlags = 0;
+			SystemParametersInfo(SPI_SETSTICKYKEYS, dwStickyKeysStructSize,
+				(PVOID)&StickyKeysStruct, 0);
+		}
 
-        if (StickyKeysStruct.dwFlags & SKF_AVAILABLE) {
-            // Disable StickyKeys feature
-            dwStickyKeysFlags = StickyKeysStruct.dwFlags;
-            StickyKeysStruct.dwFlags = 0;
-            SystemParametersInfo(SPI_SETSTICKYKEYS, dwStickyKeysStructSize,
-                                 (PVOID)&StickyKeysStruct, 0);
-        }
+		if (FilterKeysStruct.dwFlags & FKF_AVAILABLE) {
+			// Disable FilterKeys feature
+			dwFilterKeysFlags = FilterKeysStruct.dwFlags;
+			FilterKeysStruct.dwFlags = 0;
+			SystemParametersInfo(SPI_SETFILTERKEYS, dwFilterKeysStructSize,
+				(PVOID)&FilterKeysStruct, 0);
+		}
 
-        if (FilterKeysStruct.dwFlags & FKF_AVAILABLE) {
-            // Disable FilterKeys feature
-            dwFilterKeysFlags = FilterKeysStruct.dwFlags;
-            FilterKeysStruct.dwFlags = 0;
-            SystemParametersInfo(SPI_SETFILTERKEYS, dwFilterKeysStructSize,
-                                 (PVOID)&FilterKeysStruct, 0);
-        }
+		if (ToggleKeysStruct.dwFlags & TKF_AVAILABLE) {
+			// Disable FilterKeys feature
+			dwToggleKeysFlags = ToggleKeysStruct.dwFlags;
+			ToggleKeysStruct.dwFlags = 0;
+			SystemParametersInfo(SPI_SETTOGGLEKEYS, dwToggleKeysStructSize,
+				(PVOID)&ToggleKeysStruct, 0);
+		}
+	}
 
-        if (ToggleKeysStruct.dwFlags & TKF_AVAILABLE) {
-            // Disable FilterKeys feature
-            dwToggleKeysFlags = ToggleKeysStruct.dwFlags;
-            ToggleKeysStruct.dwFlags = 0;
-            SystemParametersInfo(SPI_SETTOGGLEKEYS, dwToggleKeysStructSize,
-                                 (PVOID)&ToggleKeysStruct, 0);
-        }
-    }
+	~damn_keys_filter() {
+		if (bScreenSaverState)
+			// Restoring screen saver
+			SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, TRUE, NULL, 0);
 
-    ~damn_keys_filter() {
-        if (bScreenSaverState)
-            // Restoring screen saver
-            SystemParametersInfo(SPI_SETSCREENSAVEACTIVE, TRUE, NULL, 0);
+		if (dwStickyKeysFlags) {
+			// Restore StickyKeys feature
+			StickyKeysStruct.dwFlags = dwStickyKeysFlags;
+			SystemParametersInfo(SPI_SETSTICKYKEYS, dwStickyKeysStructSize,
+				(PVOID)&StickyKeysStruct, 0);
+		}
 
-        if (dwStickyKeysFlags) {
-            // Restore StickyKeys feature
-            StickyKeysStruct.dwFlags = dwStickyKeysFlags;
-            SystemParametersInfo(SPI_SETSTICKYKEYS, dwStickyKeysStructSize,
-                                 (PVOID)&StickyKeysStruct, 0);
-        }
+		if (dwFilterKeysFlags) {
+			// Restore FilterKeys feature
+			FilterKeysStruct.dwFlags = dwFilterKeysFlags;
+			SystemParametersInfo(SPI_SETFILTERKEYS, dwFilterKeysStructSize,
+				(PVOID)&FilterKeysStruct, 0);
+		}
 
-        if (dwFilterKeysFlags) {
-            // Restore FilterKeys feature
-            FilterKeysStruct.dwFlags = dwFilterKeysFlags;
-            SystemParametersInfo(SPI_SETFILTERKEYS, dwFilterKeysStructSize,
-                                 (PVOID)&FilterKeysStruct, 0);
-        }
-
-        if (dwToggleKeysFlags) {
-            // Restore FilterKeys feature
-            ToggleKeysStruct.dwFlags = dwToggleKeysFlags;
-            SystemParametersInfo(SPI_SETTOGGLEKEYS, dwToggleKeysStructSize,
-                                 (PVOID)&ToggleKeysStruct, 0);
-        }
-    }
+		if (dwToggleKeysFlags) {
+			// Restore FilterKeys feature
+			ToggleKeysStruct.dwFlags = dwToggleKeysFlags;
+			SystemParametersInfo(SPI_SETTOGGLEKEYS, dwToggleKeysStructSize,
+				(PVOID)&ToggleKeysStruct, 0);
+		}
+	}
 };
 
 #undef dwStickyKeysStructSize
 #undef dwFilterKeysStructSize
 #undef dwToggleKeysStructSize
+// -- << TODO end
 
 // Фунция для тупых требований THQ и тупых американских пользователей
 BOOL IsOutOfVirtualMemory() {

@@ -51,7 +51,7 @@
 
 #ifndef MTL_EXPORT_API
 #ifdef _EDITOR
-#include "ElTree.hpp"
+//#include "ElTree.hpp"
 #define MTL_EXPORT_API ECORE_API
 #else
 #define MTL_EXPORT_API ENGINE_API
@@ -145,7 +145,7 @@ public:
     void Save(IWriter& fs);
     IC int GetID() { return ID; }
 #ifdef _EDITOR
-    void FillProp(PropItemVec& values, ListItem* owner);
+    //void FillProp(PropItemVec& values, ListItem* owner);
 #endif
 };
 using GameMtlVec = xr_vector<SGameMtl*>;
@@ -187,16 +187,16 @@ public:
     FactoryPtr<IWallMarkArray> m_pCollideMarks;
 #endif //	GM_NON_GAME
 #ifdef _EDITOR
-    PropValue* propBreakingSounds;
-    PropValue* propStepSounds;
-    PropValue* propCollideSounds;
-    PropValue* propCollideParticles;
-    PropValue* propCollideMarks;
-    void __stdcall OnFlagChange(PropValue* sender);
-    void __stdcall OnParentClick(ButtonValue* sender, bool& bModif, bool& bSafe);
-    void __stdcall OnCommandClick(ButtonValue* sender, bool& bModif, bool& bSafe);
-    void __stdcall FillChooseMtl(ChooseItemVec& items, void* param);
-    void CopyFrom(SGameMtlPair* parent);
+    //PropValue* propBreakingSounds;
+    //PropValue* propStepSounds;
+    //PropValue* propCollideSounds;
+    //PropValue* propCollideParticles;
+    //PropValue* propCollideMarks;
+    //void __stdcall OnFlagChange(PropValue* sender);
+    //void __stdcall OnParentClick(ButtonValue* sender, bool& bModif, bool& bSafe);
+    //void __stdcall OnCommandClick(ButtonValue* sender, bool& bModif, bool& bSafe);
+    //void __stdcall FillChooseMtl(ChooseItemVec& items, void* param);
+    //void CopyFrom(SGameMtlPair* parent);
 #endif
 public:
     SGameMtlPair(CGameMtlLibrary* owner) {
@@ -226,8 +226,8 @@ public:
     IC int GetParent() { return ID_parent; }
     BOOL SetParent(int parent);
 #ifdef _EDITOR
-    void FillProp(PropItemVec& values);
-    void TransferFromParent(SGameMtlPair* parent);
+    //void FillProp(PropItemVec& values);
+    //void TransferFromParent(SGameMtlPair* parent);
 #endif
 #ifdef DEBUG
     LPCSTR dbg_Name();
@@ -240,7 +240,6 @@ using GameMtlPairIt = GameMtlPairVec::iterator;
 class MTL_EXPORT_API CGameMtlLibrary {
     int material_index;
     int material_pair_index;
-    BENCH_SEC_SCRAMBLEMEMBER1
 
     GameMtlVec materials;
     GameMtlPairVec material_pairs;
@@ -296,16 +295,16 @@ R_ASSERT		(0==materials.size());
     }
 #ifdef _EDITOR
     // editor
-    SGameMtl* AppendMaterial(SGameMtl* parent);
-    void RemoveMaterial(LPCSTR name);
-    IC SGameMtl* GetMaterialByID(int ID) {
-        GameMtlIt it = GetMaterialItByID(ID);
-        return materials.end() != it ? *it : 0;
-    }
-    IC SGameMtl* GetMaterial(LPCSTR name) {
-        GameMtlIt it = GetMaterialIt(name);
-        return materials.end() != it ? *it : 0;
-    }
+    //SGameMtl* AppendMaterial(SGameMtl* parent);
+    //void RemoveMaterial(LPCSTR name);
+    //IC SGameMtl* GetMaterialByID(int ID) {
+    //    GameMtlIt it = GetMaterialItByID(ID);
+    //    return materials.end() != it ? *it : 0;
+    //}
+    //IC SGameMtl* GetMaterial(LPCSTR name) {
+    //    GameMtlIt it = GetMaterialIt(name);
+    //    return materials.end() != it ? *it : 0;
+    //}
 #else
     // game
     IC SGameMtl* GetMaterialByID(s32 id) { return GetMaterialByIdx(GetMaterialIdx(id)); }
@@ -331,23 +330,23 @@ R_ASSERT		(0==materials.size());
 
 // material pair routine
 #ifdef _EDITOR
-    void CopyMtlPairs(SGameMtl* from, SGameMtl* to);
-    BOOL UpdateMtlPairs(SGameMtl* src);
-    BOOL UpdateMtlPairs();
-    LPCSTR MtlPairToName(int mtl0, int mtl1);
-    void NameToMtlPair(LPCSTR name, int& mtl0, int& mtl1);
-    void MtlNameToMtlPair(LPCSTR name, int& mtl0, int& mtl1);
-    SGameMtlPair* CreateMaterialPair(int m0, int m1, SGameMtlPair* parent = 0);
-    SGameMtlPair* AppendMaterialPair(int m0, int m1, SGameMtlPair* parent = 0);
-    void RemoveMaterialPair(LPCSTR name);
-    void RemoveMaterialPair(GameMtlPairIt rem_it);
-    void RemoveMaterialPair(int mtl);
-    void RemoveMaterialPair(int mtl0, int mtl1);
-    GameMtlPairIt GetMaterialPairIt(int id);
-    SGameMtlPair* GetMaterialPair(int id);
-    GameMtlPairIt GetMaterialPairIt(int mtl0, int mtl1);
-    SGameMtlPair* GetMaterialPair(int mtl0, int mtl1);
-    SGameMtlPair* GetMaterialPair(LPCSTR name);
+    //void CopyMtlPairs(SGameMtl* from, SGameMtl* to);
+    //BOOL UpdateMtlPairs(SGameMtl* src);
+    //BOOL UpdateMtlPairs();
+    //LPCSTR MtlPairToName(int mtl0, int mtl1);
+    //void NameToMtlPair(LPCSTR name, int& mtl0, int& mtl1);
+    //void MtlNameToMtlPair(LPCSTR name, int& mtl0, int& mtl1);
+    //SGameMtlPair* CreateMaterialPair(int m0, int m1, SGameMtlPair* parent = 0);
+    //SGameMtlPair* AppendMaterialPair(int m0, int m1, SGameMtlPair* parent = 0);
+    //void RemoveMaterialPair(LPCSTR name);
+    //void RemoveMaterialPair(GameMtlPairIt rem_it);
+    //void RemoveMaterialPair(int mtl);
+    //void RemoveMaterialPair(int mtl0, int mtl1);
+    //GameMtlPairIt GetMaterialPairIt(int id);
+    //SGameMtlPair* GetMaterialPair(int id);
+    //GameMtlPairIt GetMaterialPairIt(int mtl0, int mtl1);
+    //SGameMtlPair* GetMaterialPair(int mtl0, int mtl1);
+    //SGameMtlPair* GetMaterialPair(LPCSTR name);
 #else
     // game
     IC SGameMtlPair* GetMaterialPair(u16 idx0, u16 idx1) {

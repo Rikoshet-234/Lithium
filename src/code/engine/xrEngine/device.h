@@ -195,6 +195,8 @@ public:
     // float									fFOV;
     // float									fASPECT;
 
+	bool isEditor;
+
     CRenderDevice()
         : m_pRender(0)
 #ifdef INGAME_EDITOR
@@ -230,7 +232,8 @@ public:
 
     // Creation & Destroying
     void ConnectToRender();
-    void Create(void);
+	void Create(void);
+	void CreateEx(void);
     void Run(void);
     void Destroy(void);
     void Reset(bool precache = true);

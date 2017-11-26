@@ -336,7 +336,7 @@ class CCC_VID_Reset : public IConsole_Command {
 public:
     CCC_VID_Reset(LPCSTR N) : IConsole_Command(N) { bEmptyArgsHandled = TRUE; };
     virtual void Execute(LPCSTR args) {
-        if (Device.b_is_Ready) {
+        if (Device.b_is_Ready || Device.isEditor) {
             Device.Reset();
         }
     }

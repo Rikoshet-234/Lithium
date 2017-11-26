@@ -249,7 +249,7 @@ u16 CGameFont::SplitByWidth(u16* puBuffer, u16 uBufferSize, float fTargetWidth,
 
 void CGameFont::MasterOut(BOOL bCheckDevice, BOOL bUseCoords, BOOL bScaleCoords, BOOL bUseSkip,
                           float _x, float _y, float _skip, LPCSTR fmt, va_list p) {
-    if (bCheckDevice && (!RDEVICE.b_is_Active))
+    if (bCheckDevice && (!RDEVICE.b_is_Active && !RDEVICE.isEditor))
         return;
 
     String rs;

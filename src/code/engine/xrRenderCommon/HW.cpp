@@ -185,7 +185,7 @@ void CHW::CreateDevice(HWND m_hWnd, bool move_window) {
     BOOL bWindowed = TRUE;
 
 #ifndef _EDITOR
-    bWindowed = !psDeviceFlags.is(rsFullscreen);
+    bWindowed = !psDeviceFlags.is(rsFullscreen) || move_window;
 #else
     bWindowed = 1;
 #endif
@@ -526,7 +526,7 @@ void CHW::updateWindowProps(HWND m_hWnd) {
     }
 
 #ifndef _EDITOR
-    ShowCursor(FALSE);
+    if (!Device.isEditor) ShowCursor(FALSE);
     SetForegroundWindow(m_hWnd);
 #endif
 }

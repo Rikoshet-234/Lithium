@@ -250,7 +250,7 @@ void CRenderDevice::on_idle() {
 
     Statistic->RenderTOTAL_Real.FrameStart();
     Statistic->RenderTOTAL_Real.Begin();
-    if (b_is_Active) {
+    if (b_is_Active || isEditor) {
         if (Begin()) {
 
             seqRender.Process(rp_Render);
@@ -486,7 +486,7 @@ BOOL CRenderDevice::Paused() { return g_pauseMngr.Paused(); };
 void CRenderDevice::OnWM_Activate(WPARAM wParam, LPARAM lParam) {
     u16 fActive = LOWORD(wParam);
     BOOL fMinimized = (BOOL)HIWORD(wParam);
-    BOOL bActive = ((fActive != WA_INACTIVE) && (!fMinimized)) ? TRUE : FALSE;
+    BOOL bActive = ((fActive != WA_INACTIVE) && (!fMinimized) && isEditor) ? TRUE : FALSE;
 
     if (bActive != Device.b_is_Active) {
         Device.b_is_Active = bActive;

@@ -1,33 +1,8 @@
 #pragma once
 
-#include <xr_config.h>
-
 #ifndef DEBUG
 #define MASTER_GOLD
 #endif // DEBUG
-
-//#define BENCHMARK_BUILD
-
-#ifdef BENCHMARK_BUILD
-#define BENCH_SEC_CALLCONV __stdcall
-#define BENCH_SEC_SCRAMBLEVTBL1 \
-    virtual int GetFlags() { return 1; }
-#define BENCH_SEC_SCRAMBLEVTBL2 \
-    virtual void* GetData() { return 0; }
-#define BENCH_SEC_SCRAMBLEVTBL3 \
-    virtual void* GetCache() { return 0; }
-#define BENCH_SEC_SIGN , void* pBenchScrampleVoid = 0
-#define BENCH_SEC_SCRAMBLEMEMBER1 float m_fSrambleMember1;
-#define BENCH_SEC_SCRAMBLEMEMBER2 float m_fSrambleMember2;
-#else //	BENCHMARK_BUILD
-#define BENCH_SEC_CALLCONV
-#define BENCH_SEC_SCRAMBLEVTBL1
-#define BENCH_SEC_SCRAMBLEVTBL2
-#define BENCH_SEC_SCRAMBLEVTBL3
-#define BENCH_SEC_SIGN
-#define BENCH_SEC_SCRAMBLEMEMBER1
-#define BENCH_SEC_SCRAMBLEMEMBER2
-#endif //	BENCHMARK_BUILD
 
 #pragma warning(disable : 4996)
 
@@ -43,7 +18,7 @@
 #define XR_NOEXCEPT_OP(x) noexcept(x)
 #else
 // "release"
-#if defined(_CPPUNWIND) && !defined __BORLANDC__
+#if defined(_CPPUNWIND) && !defined __BORLANDC__ && !defined(Li_EDITOR)
 #error Please disable exceptions...
 #endif
 #ifdef _HAS_EXCEPTIONS
@@ -174,36 +149,36 @@ using namespace std::string_view_literals;
 
 // stl ext
 struct XRCORE_API xr_rtoken {
-    std::string name;
-    int id;
-    xr_rtoken(const std::string_view nm, const int id) : name(nm), id(id) {}
+	std::string name;
+	int id;
+	xr_rtoken(const std::string_view nm, const int id) : name(nm), id(id) {}
 
-    void rename(const std::string_view nm) { name = nm; }
-    bool equal(const std::string_view nm) const { return name == nm; }
+	void rename(const std::string_view nm) { name = nm; }
+	bool equal(const std::string_view nm) const { return name == nm; }
 };
 
 #pragma pack(push, 1)
 struct XRCORE_API xr_shortcut {
-    enum {
-        flShift = 0x20,
-        flCtrl = 0x40,
-        flAlt = 0x80,
-    };
-    union {
-        struct {
-            u8 key;
-            Flags8 ext;
-        };
-        u16 hotkey;
-    };
-    xr_shortcut(u8 k, bool a, bool c, bool s) : key(k) {
-        ext.assign(u8((a ? flAlt : 0) | (c ? flCtrl : 0) | (s ? flShift : 0)));
-    }
-    xr_shortcut() {
-        ext.zero();
-        key = 0;
-    }
-    bool similar(const xr_shortcut& v) const { return ext.equal(v.ext) && (key == v.key); }
+	enum {
+		flShift = 0x20,
+		flCtrl = 0x40,
+		flAlt = 0x80,
+	};
+	union {
+		struct {
+			u8 key;
+			Flags8 ext;
+		};
+		u16 hotkey;
+	};
+	xr_shortcut(u8 k, bool a, bool c, bool s) : key(k) {
+		ext.assign(u8((a ? flAlt : 0) | (c ? flCtrl : 0) | (s ? flShift : 0)));
+	}
+	xr_shortcut() {
+		ext.zero();
+		key = 0;
+	}
+	bool similar(const xr_shortcut& v) const { return ext.equal(v.ext) && (key == v.key); }
 };
 #pragma pack(pop)
 
@@ -232,28 +207,29 @@ using RTokenVec = xr_vector<xr_rtoken>;
 // destructor
 template <class T>
 class destructor {
-    T* ptr;
+	T* ptr;
 
 public:
-    destructor(T* p) { ptr = p; }
-    ~destructor() { xr_delete(ptr); }
-    T& operator()() { return *ptr; }
+	destructor(T* p) { ptr = p; }
+	~destructor() { xr_delete(ptr); }
+	T& operator()() { return *ptr; }
 };
 
 // ********************************************** The Core definition
-class XRCORE_API xrCore {
+class XRCORE_API xrCore
+{
 public:
-    string64 ApplicationName;
-    string_path ApplicationPath;
-    string_path WorkingPath;
-    string64 UserName;
-    string64 CompName;
-    string512 Params;
-    DWORD dwFrame;
+ 	string64 ApplicationName;
+ 	string_path ApplicationPath;
+ 	string_path WorkingPath;
+ 	string64 UserName;
+ 	string64 CompName;
+ 	string512 Params;
+ 	DWORD dwFrame;
 
-    void _initialize(const char* ApplicationName, LogCallback cb = nullptr, bool init_fs = true,
-                     const char* fs_fname = nullptr);
-    void _destroy();
+	void _initialize(const char* ApplicationName, LogCallback cb = nullptr, bool init_fs = true,
+		const char* fs_fname = nullptr);
+	void _destroy();
 };
 
 // Borland class dll interface

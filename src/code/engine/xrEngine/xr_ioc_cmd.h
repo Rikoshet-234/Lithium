@@ -47,7 +47,7 @@ protected:
     bool EQ(LPCSTR S1, LPCSTR S2) { return xr_strcmp(S1, S2) == 0; }
 
 public:
-    IConsole_Command(LPCSTR N BENCH_SEC_SIGN)
+    IConsole_Command(LPCSTR N)
         : cName(N), bEnabled(true), bLowerCaseArgs(true), bEmptyArgsHandled(false) {
         m_LRU.reserve(LRU_MAX_COUNT + 1);
         m_LRU.clear();
@@ -56,8 +56,6 @@ public:
         if (Console)
             Console->RemoveCommand(this);
     };
-
-    BENCH_SEC_SCRAMBLEVTBL3
 
     LPCSTR Name() { return cName; }
     void InvalidSyntax() {
@@ -75,8 +73,6 @@ public:
         if (S[0])
             F->w_printf("%s %s\r\n", cName, S);
     }
-
-    BENCH_SEC_SCRAMBLEVTBL2
 
     virtual void fill_tips(vecTips& tips, u32 mode) { add_LRU_to_tips(tips); }
     //			vecLRU&	LRU				() { return m_LRU; }

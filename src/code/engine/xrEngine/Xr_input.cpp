@@ -130,9 +130,7 @@ HRESULT CInput::CreateInputDevice(LPDIRECTINPUTDEVICE8* device, GUID guidDevice,
 
 // Set the cooperativity level to let DirectInput know how this device
 // should interact with the system and with other DirectInput applications.
-#ifdef INGAME_EDITOR
-    if (!Device.editor())
-#endif // #ifdef INGAME_EDITOR
+    if (!Device.isEditor)
     {
         HRESULT _hr = (*device)->SetCooperativeLevel(RDEVICE.m_hWnd, dwFlags);
         if (FAILED(_hr) && (_hr == E_NOTIMPL))

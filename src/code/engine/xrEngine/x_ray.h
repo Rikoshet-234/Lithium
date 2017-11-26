@@ -7,6 +7,25 @@ class ENGINE_API CGameFont;
 #include "xrRender/FactoryPtr.h"
 #include "xrRender/ApplicationRender.h"
 
+extern XRCORE_API LPCSTR build_date;
+extern XRCORE_API u32 build_id;
+
+extern ENGINE_API string512 g_sLaunchOnExit_params;
+extern ENGINE_API string512 g_sLaunchOnExit_app;
+extern ENGINE_API string_path g_sLaunchWorkingFolder;
+extern ENGINE_API bool g_bBenchmark;
+extern ENGINE_API BOOL g_bIntroFinished;
+extern ENGINE_API CInifile* pGameIni;
+
+extern ENGINE_API void compute_build_id();
+extern ENGINE_API void InitSettings();
+
+extern ENGINE_API void InitInput();
+extern ENGINE_API void InitConsole();
+
+extern ENGINE_API void Startup();
+extern ENGINE_API void StartupEx();
+
 // definition
 class ENGINE_API CApplication : public pureFrame, public IEventReceiver {
     friend class dxApplicationRender;
