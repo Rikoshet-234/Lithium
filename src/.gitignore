@@ -17,3 +17,6 @@ code/lib/
 code/pdb/
 code/3rd-party/
 gamedata/*
+_build_/*
+_i10e_/*
+_lib_/*

@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{3C5A0B1A-350F-4C91-AD5C-48AA36082D89}</ProjectGuid>
+    <RootNamespace>xrRenderR1</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\xrRenderCommon\ColorMapManager.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_CACHE.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_Decompress.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_soft.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_VS.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailModel.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxApplicationRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxConsoleRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxDebugRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxEnvironmentRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxFontRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxLensFlareRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxObjectSpaceRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxRainRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxRenderDeviceRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxRenderFactory.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxStatGraphRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxStatsRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxThunderboltDescRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxThunderboltRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxUIRender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxUISequenceVideoItem.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxUIShader.cpp" />
+    <ClCompile Include="..\xrRenderCommon\dxWallMarkArray.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FLOD.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FProgressive.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FSkinned.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FTreeVisual.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FVisual.cpp" />
+    <ClCompile Include="..\xrRenderCommon\light.cpp" />
+    <ClCompile Include="..\xrRenderCommon\LightTrack.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Light_DB.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Light_Package.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ModelPool.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleEffect.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleEffectDef.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleGroup.cpp" />
+    <ClCompile Include="..\xrRenderCommon\PSLibrary.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_DBG.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_hemi.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_Runtime.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_tree.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_xform.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_DStreams.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_build.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_render.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_render_lods.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__screenshot.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Texture.cpp" />
+    <ClCompile Include="..\xrRenderCommon\tga.cpp" />
+    <ClCompile Include="..\xrRenderCommon\xrRender_console.cpp" />
+    <ClCompile Include="FStaticRender.cpp" />
+    <ClCompile Include="FStaticRender_Blenders.cpp" />
+    <ClCompile Include="FStaticRender_DetectSector.cpp" />
+    <ClCompile Include="FStaticRender_Loader.cpp" />
+    <ClCompile Include="FStaticRender_RenderTarget.cpp" />
+    <ClCompile Include="GlowManager.cpp" />
+    <ClCompile Include="LightPPA.cpp" />
+    <ClCompile Include="LightProjector.cpp" />
+    <ClCompile Include="LightShadows.cpp" />
+    <ClCompile Include="script_unity_builds.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="xrRender_R1.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\xrRenderCommon\cl_intersect.h" />
+    <ClInclude Include="..\xrRenderCommon\ColorMapManager.h" />
+    <ClInclude Include="..\xrRenderCommon\DetailFormat.h" />
+    <ClInclude Include="..\xrRenderCommon\DetailManager.h" />
+    <ClInclude Include="..\xrRenderCommon\DetailModel.h" />
+    <ClInclude Include="..\xrRenderCommon\dxApplicationRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxConsoleRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxDebugRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxEnvironmentRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxFontRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxLensFlareRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxObjectSpaceRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxRainRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxRenderDeviceRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxRenderFactory.h" />
+    <ClInclude Include="..\xrRenderCommon\dxStatGraphRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxStatsRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxThunderboltDescRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxThunderboltRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxUIRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxUISequenceVideoItem.h" />
+    <ClInclude Include="..\xrRenderCommon\dxUIShader.h" />
+    <ClInclude Include="..\xrRenderCommon\dxWallMarkArray.h" />
+    <ClInclude Include="..\xrRenderCommon\FLOD.h" />
+    <ClInclude Include="..\xrRenderCommon\FProgressive.h" />
+    <ClInclude Include="..\xrRenderCommon\FSkinned.h" />
+    <ClInclude Include="..\xrRenderCommon\FTreeVisual.h" />
+    <ClInclude Include="..\xrRenderCommon\FVF.h" />
+    <ClInclude Include="..\xrRenderCommon\FVisual.h" />
+    <ClInclude Include="..\xrRenderCommon\light.h" />
+    <ClInclude Include="..\xrRenderCommon\LightTrack.h" />
+    <ClInclude Include="..\xrRenderCommon\Light_DB.h" />
+    <ClInclude Include="..\xrRenderCommon\Light_Package.h" />
+    <ClInclude Include="..\xrRenderCommon\ModelPool.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleEffect.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleEffectDef.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleGroup.h" />
+    <ClInclude Include="..\xrRenderCommon\PSLibrary.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_hemi.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_Runtime.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_tree.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_xform.h" />
+    <ClInclude Include="..\xrRenderCommon\R_DStreams.h" />
+    <ClInclude Include="..\xrRenderCommon\r__dsgraph_structure.h" />
+    <ClInclude Include="..\xrRenderCommon\r__dsgraph_types.h" />
+    <ClInclude Include="..\xrRenderCommon\xrD3DDefs.h" />
+    <ClInclude Include="..\xrRenderCommon\xrRender_console.h" />
+    <ClInclude Include="..\xrRenderDX9\dx9R_Backend_Runtime.h" />
+    <ClInclude Include="..\xrRender\ApplicationRender.h" />
+    <ClInclude Include="..\xrRender\ConsoleRender.h" />
+    <ClInclude Include="..\xrRender\DebugRender.h" />
+    <ClInclude Include="..\xrRender\DebugShader.h" />
+    <ClInclude Include="..\xrRender\EnvironmentRender.h" />
+    <ClInclude Include="..\xrRender\FactoryPtr.h" />
+    <ClInclude Include="..\xrRender\FontRender.h" />
+    <ClInclude Include="..\xrRender\LensFlareRender.h" />
+    <ClInclude Include="..\xrRender\ObjectSpaceRender.h" />
+    <ClInclude Include="..\xrRender\RainRender.h" />
+    <ClInclude Include="..\xrRender\RenderDeviceRender.h" />
+    <ClInclude Include="..\xrRender\RenderFactory.h" />
+    <ClInclude Include="..\xrRender\StatGraphRender.h" />
+    <ClInclude Include="..\xrRender\StatsRender.h" />
+    <ClInclude Include="..\xrRender\ThunderboltDescRender.h" />
+    <ClInclude Include="..\xrRender\ThunderboltRender.h" />
+    <ClInclude Include="..\xrRender\UIRender.h" />
+    <ClInclude Include="..\xrRender\UISequenceVideoItem.h" />
+    <ClInclude Include="..\xrRender\UIShader.h" />
+    <ClInclude Include="..\xrRender\WallMarkArray.h" />
+    <ClInclude Include="FStaticRender.h" />
+    <ClInclude Include="FStaticRender_RenderTarget.h" />
+    <ClInclude Include="GlowManager.h" />
+    <ClInclude Include="LightPPA.h" />
+    <ClInclude Include="LightProjector.h" />
+    <ClInclude Include="LightShadows.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

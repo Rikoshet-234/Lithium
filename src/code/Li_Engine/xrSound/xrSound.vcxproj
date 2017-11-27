@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{0BB96384-241B-49FB-9495-7BF5F38BAE12}</ProjectGuid>
+    <RootNamespace>xrSound</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;$(SolutionDir)3rd-party\lib_vorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;XRSOUND_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;openal32.lib;dsound.lib;xrCDB.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;xrAPI.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;$(SolutionDir)3rd-party\lib_vorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;XRSOUND_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;openal32.lib;dsound.lib;xrCDB.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;xrAPI.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;$(SolutionDir)3rd-party\lib_vorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;XRSOUND_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;openal32.lib;dsound.lib;xrCDB.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;xrAPI.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;$(SolutionDir)3rd-party\lib_vorbis\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;XRSOUND_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DisableSpecificWarnings>4244;4267</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>libogg.lib;libvorbis.lib;libvorbisfile.lib;openal32.lib;dsound.lib;xrCDB.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;xrAPI.lib;winmm.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="guids.cpp" />
+    <ClCompile Include="OpenALDeviceList.cpp" />
+    <ClCompile Include="sound.cpp" />
+    <ClCompile Include="SoundRender_Cache.cpp" />
+    <ClCompile Include="SoundRender_Core.cpp" />
+    <ClCompile Include="SoundRender_CoreA.cpp" />
+    <ClCompile Include="SoundRender_Core_Processor.cpp" />
+    <ClCompile Include="SoundRender_Core_SourceManager.cpp" />
+    <ClCompile Include="SoundRender_Core_StartStop.cpp" />
+    <ClCompile Include="SoundRender_Emitter.cpp" />
+    <ClCompile Include="SoundRender_Emitter_FSM.cpp" />
+    <ClCompile Include="SoundRender_Emitter_StartStop.cpp" />
+    <ClCompile Include="SoundRender_Emitter_streamer.cpp" />
+    <ClCompile Include="SoundRender_Environment.cpp" />
+    <ClCompile Include="SoundRender_Source.cpp" />
+    <ClCompile Include="SoundRender_Source_loader.cpp" />
+    <ClCompile Include="SoundRender_Target.cpp" />
+    <ClCompile Include="SoundRender_TargetA.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="cl_intersect.h" />
+    <ClInclude Include="OpenALDeviceList.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SoundRender.h" />
+    <ClInclude Include="SoundRender_Cache.h" />
+    <ClInclude Include="SoundRender_Core.h" />
+    <ClInclude Include="SoundRender_CoreA.h" />
+    <ClInclude Include="SoundRender_Emitter.h" />
+    <ClInclude Include="SoundRender_Environment.h" />
+    <ClInclude Include="SoundRender_Source.h" />
+    <ClInclude Include="SoundRender_Target.h" />
+    <ClInclude Include="SoundRender_TargetA.h" />
+    <ClInclude Include="stdafx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rd-party\DX_Err\DX_Err.vcxproj">
+      <Project>{0a652e40-2461-4d29-89c2-1ebcdd9bd804}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_ogg\lib_ogg.vcxproj">
+      <Project>{73594edb-5910-44b9-92f2-aa037b1df649}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_openal\lib_openal.vcxproj">
+      <Project>{319a671f-0a53-4033-bf4f-b3b39f93ac0e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_theora\lib_theora.vcxproj">
+      <Project>{43062536-ee60-4446-b82a-16ba2f328065}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbisfile\lib_vorbisfile.vcxproj">
+      <Project>{13555dd7-07f4-49fa-9e61-aeb7497ba146}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbis\lib_vorbis.vcxproj">
+      <Project>{89b3d345-157b-49ed-9885-210c6e7997ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrAPI\xrAPI.vcxproj">
+      <Project>{4b4e5add-c3aa-4aad-9d02-372883d9a2c0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCDB\xrCDB.vcxproj">
+      <Project>{208cdf2e-6a3a-441d-8a8d-a9f1f7cd1260}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCore\xrCore.vcxproj">
+      <Project>{233ed8a8-5b8e-4bbd-93ce-4c9405760e6a}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

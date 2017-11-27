@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{69EF43F2-81D4-3A0B-893F-95F9827B0BD5}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>x64</Platform>
+    <ProjectName>xrRender_R1</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkIncremental>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_vorbis\include;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR="Debug";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR=\"Debug\";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;xrEngine.lib;xrParticles.lib;nvapi.lib;vfw32.lib;libtheora.lib;d3d9.lib;dinput8.lib;shlwapi.lib;xrSound.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;libogg.lib;openal32.lib;dsound.lib;xrNetServer.lib;dxguid.lib;ws2_32.lib;luabind.lib;lua51.lib;xrCPU_Pipe.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;winmm.lib;faultrep.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);$(SolutionDir)3rd-party\nvapi\lib\$(Platform);$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Games/stalker_cop_dev/pdb/x64/Debug/xrRender_R1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_vorbis\include;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;DEBUG;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR="Debug";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DEBUG;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR=\"Debug\";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;xrEngine.lib;xrParticles.lib;nvapi.lib;vfw32.lib;libtheora.lib;d3d9.lib;dinput8.lib;shlwapi.lib;xrSound.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;libogg.lib;openal32.lib;dsound.lib;xrNetServer.lib;dxguid.lib;ws2_32.lib;luabind.lib;lua51.lib;xrCPU_Pipe.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;winmm.lib;faultrep.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);$(SolutionDir)3rd-party\nvapi\lib\$(Platform);$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <ProgramDataBaseFile>D:/Games/stalker_cop_dev/pdb/x64/Debug/xrRender_R1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_vorbis\include;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /await</AdditionalOptions>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR="RelWithDebInfo";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR=\"RelWithDebInfo\";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;xrEngine.lib;xrParticles.lib;nvapi.lib;vfw32.lib;libtheora.lib;d3d9.lib;dinput8.lib;shlwapi.lib;xrSound.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;libogg.lib;openal32.lib;dsound.lib;xrNetServer.lib;dxguid.lib;ws2_32.lib;luabind.lib;lua51.lib;xrCPU_Pipe.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;winmm.lib;faultrep.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);$(SolutionDir)3rd-party\nvapi\lib\$(Platform);$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/Games/stalker_cop_dev/pdb/x64/RelWithDebInfo/xrRender_R1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\lib_ogg\include;$(SolutionDir)3rd-party\lib_theora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\lib_vorbis\include;$(SolutionDir)3rd-party\lib_openal\include;$(SolutionDir)3rd-party\lib_luabind\luabind\include;$(SolutionDir)3rd-party\lib_luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /await</AdditionalOptions>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577</DisableSpecificWarnings>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR="RelWithDebInfo";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;_HAS_EXCEPTIONS=0;ATIMGPUD_DLL;XRRENDER_R1_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;CMAKE_INTDIR=\"RelWithDebInfo\";xrRender_R1_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\PROJECTS\LithiumProject\src\code\3rd-party;D:\PROJECTS\LithiumProject\src\code\engine;D:\PROJECTS\LithiumProject\src\code\utils;D:\PROJECTS\LithiumProject\src\build64\generated;D:\PROJECTS\LithiumProject\src\code\3rd-party\dxsdk\include;..\xrRender_R1;D:\PROJECTS\LithiumProject\src\code\3rd-party\NVAPI;D:\PROJECTS\LithiumProject\src\code\3rd-party\libogg\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\libtheora\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\fmtlib;D:\PROJECTS\LithiumProject\src\code\3rd-party\boost;D:\PROJECTS\LithiumProject\src\code\3rd-party\libvorbis\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\openal\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luabind\luabind\include;D:\PROJECTS\LithiumProject\src\code\3rd-party\luajit\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>d3dx9.lib;xrEngine.lib;xrParticles.lib;nvapi.lib;vfw32.lib;libtheora.lib;d3d9.lib;dinput8.lib;shlwapi.lib;xrSound.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;libogg.lib;openal32.lib;dsound.lib;xrNetServer.lib;dxguid.lib;ws2_32.lib;luabind.lib;lua51.lib;xrCPU_Pipe.lib;xrCore.lib;dxerr_.lib;version.lib;dbghelp.lib;winmm.lib;faultrep.lib;psapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)3rd-party\dxsdk\lib\$(Platform);$(SolutionDir)3rd-party\nvapi\lib\$(Platform);$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <LinkTimeCodeGeneration>UseLinkTimeCodeGeneration</LinkTimeCodeGeneration>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ProgramDataBaseFile>D:/Games/stalker_cop_dev/pdb/x64/RelWithDebInfo/xrRender_R1.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\xrRenderCommon\dxLensFlareRender.h" />
+    <ClInclude Include="..\xrRender\LensFlareRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxLensFlareRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\WallmarksEngine.h" />
+    <ClCompile Include="..\xrRenderCommon\WallmarksEngine.cpp" />
+    <ClInclude Include="..\xrRender\ConsoleRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxConsoleRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxConsoleRender.cpp" />
+    <ClInclude Include="..\xrRender\DebugShader.h" />
+    <ClInclude Include="..\xrRenderCommon\dxUIShader.h" />
+    <ClInclude Include="..\xrRender\UIShader.h" />
+    <ClCompile Include="..\xrRenderCommon\dxUIShader.cpp" />
+    <ClInclude Include="..\xrRenderCommon\r_constants.h" />
+    <ClInclude Include="..\xrRenderCommon\SH_Atomic.h" />
+    <ClInclude Include="..\xrRenderCommon\SH_Constant.h" />
+    <ClInclude Include="..\xrRenderCommon\SH_Matrix.h" />
+    <ClInclude Include="..\xrRenderCommon\SH_RT.h" />
+    <ClInclude Include="..\xrRenderCommon\SH_Texture.h" />
+    <ClInclude Include="..\xrRenderCommon\Shader.h" />
+    <ClCompile Include="..\xrRenderCommon\r_constants.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SH_Atomic.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SH_Constant.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SH_Matrix.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SH_RT.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SH_Texture.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Shader.cpp" />
+    <ClInclude Include="..\xrRenderCommon\Animation.h" />
+    <ClInclude Include="..\xrRender\animation_blend.h" />
+    <ClInclude Include="..\xrRender\animation_motion.h" />
+    <ClInclude Include="..\xrRenderCommon\AnimationKeyCalculate.h" />
+    <ClInclude Include="..\xrRenderCommon\KinematicAnimatedDefs.h" />
+    <ClInclude Include="..\xrRender\Kinematics.h" />
+    <ClInclude Include="..\xrRender\KinematicsAnimated.h" />
+    <ClInclude Include="..\xrRenderCommon\SkeletonAnimated.h" />
+    <ClInclude Include="..\xrRenderCommon\SkeletonCustom.h" />
+    <ClInclude Include="..\xrRenderCommon\SkeletonX.h" />
+    <ClInclude Include="..\xrRenderCommon\SkeletonXVertRender.h" />
+    <ClCompile Include="..\xrRenderCommon\Animation.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SkeletonAnimated.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SkeletonCustom.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SkeletonRigid.cpp" />
+    <ClCompile Include="..\xrRenderCommon\SkeletonX.cpp" />
+    <ClInclude Include="..\xrRender_R1\FStaticRender.h" />
+    <ClInclude Include="..\xrRender_R1\FStaticRender_RenderTarget.h" />
+    <ClInclude Include="..\xrRenderCommon\PSLibrary.h" />
+    <ClInclude Include="..\xrRenderCommon\r__dsgraph_structure.h" />
+    <ClInclude Include="..\xrRenderCommon\r__dsgraph_types.h" />
+    <ClCompile Include="..\xrRender_R1\FStaticRender.cpp" />
+    <ClCompile Include="..\xrRender_R1\FStaticRender_Blenders.cpp" />
+    <ClCompile Include="..\xrRender_R1\FStaticRender_DetectSector.cpp" />
+    <ClCompile Include="..\xrRender_R1\FStaticRender_Loader.cpp" />
+    <ClCompile Include="..\xrRender_R1\FStaticRender_RenderTarget.cpp" />
+    <ClCompile Include="..\xrRenderCommon\PSLibrary.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_build.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_render.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__dsgraph_render_lods.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__screenshot.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Texture.cpp" />
+    <ClCompile Include="..\xrRenderCommon\tga.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxStatGraphRender.h" />
+    <ClInclude Include="..\xrRender\StatGraphRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxStatGraphRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\xr_effgamma.h" />
+    <ClCompile Include="..\xrRenderCommon\xr_effgamma.cpp" />
+    <ClInclude Include="..\xrRender_R1\GlowManager.h" />
+    <ClCompile Include="..\xrRender_R1\GlowManager.cpp" />
+    <ClInclude Include="..\xrRender\FactoryPtr.h" />
+    <ClInclude Include="..\xrRenderDX9\dx9R_Backend_Runtime.h" />
+    <ClInclude Include="..\xrRenderCommon\FVF.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_hemi.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_Runtime.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_tree.h" />
+    <ClInclude Include="..\xrRenderCommon\R_Backend_xform.h" />
+    <ClInclude Include="..\xrRenderCommon\R_DStreams.h" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_DBG.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_hemi.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_Runtime.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_tree.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_Backend_xform.cpp" />
+    <ClCompile Include="..\xrRenderCommon\R_DStreams.cpp" />
+    <ClInclude Include="..\xrRenderCommon\DetailFormat.h" />
+    <ClInclude Include="..\xrRenderCommon\DetailManager.h" />
+    <ClInclude Include="..\xrRenderCommon\DetailModel.h" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_CACHE.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_Decompress.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_soft.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailManager_VS.cpp" />
+    <ClCompile Include="..\xrRenderCommon\DetailModel.cpp" />
+    <ClInclude Include="..\xrRenderCommon\HOM.h" />
+    <ClInclude Include="..\xrRenderCommon\occRasterizer.h" />
+    <ClCompile Include="..\xrRenderCommon\HOM.cpp" />
+    <ClCompile Include="..\xrRenderCommon\occRasterizer.cpp" />
+    <ClCompile Include="..\xrRenderCommon\occRasterizer_core.cpp" />
+    <ClInclude Include="..\xrRenderCommon\r__sector.h" />
+    <ClCompile Include="..\xrRenderCommon\r__sector.cpp" />
+    <ClCompile Include="..\xrRenderCommon\r__sector_traversal.cpp" />
+    <ClInclude Include="..\xrRender\DebugRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxDebugRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxDebugRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxParticleCustom.h" />
+    <ClInclude Include="..\xrRenderCommon\FBasicVisual.h" />
+    <ClInclude Include="..\xrRenderCommon\FHierrarhyVisual.h" />
+    <ClInclude Include="..\xrRender\ParticleCustom.h" />
+    <ClInclude Include="..\xrRender\RenderVisual.h" />
+    <ClCompile Include="..\xrRenderCommon\dxParticleCustom.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FBasicVisual.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FHierrarhyVisual.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxStatsRender.h" />
+    <ClInclude Include="..\xrRender\StatsRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxStatsRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\HW.h" />
+    <ClInclude Include="..\xrRenderCommon\HWCaps.h" />
+    <ClCompile Include="..\xrRenderCommon\HW.cpp" />
+    <ClCompile Include="..\xrRenderCommon\HWCaps.cpp" />
+    <ClInclude Include="..\xrRender\ApplicationRender.h" />
+    <ClInclude Include="..\xrRenderCommon\dxApplicationRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxApplicationRender.cpp" />
+    <ClInclude Include="..\xrRender_R1\Blender_Blur.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_BmmD.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_default_aref.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_detail_still.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Editor_Selection.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Editor_Wire.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_LaEmB.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Lm(EbB).h" />
+    <ClInclude Include="..\xrRender_R1\Blender_Model.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Model_EbB.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Particle.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_Screen_GRAY.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_Screen_SET.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_Shadow_World.h" />
+    <ClInclude Include="..\xrRenderCommon\Blender_tree.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_Vertex.h" />
+    <ClInclude Include="..\xrRender_R1\Blender_Vertex_aref.h" />
+    <ClInclude Include="..\xrRender_R1\BlenderDefault.h" />
+    <ClCompile Include="..\xrRender_R1\Blender_Blur.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_BmmD.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_default_aref.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_detail_still.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Editor_Selection.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Editor_Wire.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_LaEmB.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Lm(EbB).cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_Model.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Model_EbB.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Particle.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_Screen_GRAY.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Screen_SET.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_Shadow_World.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_tree.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_Vertex.cpp" />
+    <ClCompile Include="..\xrRender_R1\Blender_Vertex_aref.cpp" />
+    <ClCompile Include="..\xrRender_R1\BlenderDefault.cpp" />
+    <ClInclude Include="..\xrRenderCommon\blenders\Blender.h" />
+    <ClInclude Include="..\xrRenderCommon\blenders\Blender_CLSID.h" />
+    <ClInclude Include="..\xrRenderCommon\blenders\Blender_Recorder.h" />
+    <ClInclude Include="..\xrRenderCommon\tss.h" />
+    <ClInclude Include="..\xrRenderCommon\tss_def.h" />
+    <ClCompile Include="..\xrRenderCommon\blenders\Blender.cpp" />
+    <ClCompile Include="..\xrRenderCommon\blenders\Blender_Palette.cpp" />
+    <ClCompile Include="..\xrRenderCommon\blenders\Blender_Recorder.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Recorder_R2.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Blender_Recorder_StandartBinding.cpp" />
+    <ClCompile Include="..\xrRenderCommon\tss_def.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxUIRender.h" />
+    <ClInclude Include="..\xrRender\UIRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxUIRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\ETextureParams.h" />
+    <ClInclude Include="..\xrRenderCommon\ResourceManager.h" />
+    <ClInclude Include="..\xrRenderCommon\TextureDescrManager.h" />
+    <ClCompile Include="..\xrEngine\ai_script_lua_debug.cpp" />
+    <ClCompile Include="..\xrEngine\ai_script_lua_extension.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ETextureParams.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ResourceManager.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ResourceManager_Loader.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ResourceManager_Reset.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ResourceManager_Resources.cpp" />
+    <ClInclude Include="..\xrRenderCommon\ResourceManager_Scripting.cpp" />
+    <ClCompile Include="..\xrRenderCommon\TextureDescrManager.cpp" />
+    <ClInclude Include="..\xrRenderCommon\NvTriStrip.h" />
+    <ClInclude Include="..\xrRenderCommon\NvTriStripObjects.h" />
+    <ClInclude Include="..\xrRenderCommon\VertexCache.h" />
+    <ClInclude Include="..\xrRenderCommon\xrStripify.h" />
+    <ClCompile Include="..\xrRenderCommon\NvTriStrip.cpp" />
+    <ClCompile Include="..\xrRenderCommon\NvTriStripObjects.cpp" />
+    <ClCompile Include="..\xrRenderCommon\VertexCache.cpp" />
+    <ClCompile Include="..\xrRenderCommon\xrStripify.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxRenderDeviceRender.h" />
+    <ClInclude Include="..\xrRender\RenderDeviceRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxRenderDeviceRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\D3DUtils.h" />
+    <ClInclude Include="..\xrRender\DrawUtils.h" />
+    <ClInclude Include="..\xrRenderCommon\du_box.h" />
+    <ClInclude Include="..\xrRenderCommon\du_cone.h" />
+    <ClInclude Include="..\xrRenderCommon\du_cylinder.h" />
+    <ClInclude Include="..\xrRenderCommon\du_sphere.h" />
+    <ClInclude Include="..\xrRenderCommon\du_sphere_part.h" />
+    <ClCompile Include="..\xrRenderCommon\D3DUtils.cpp" />
+    <ClCompile Include="..\xrRenderCommon\du_box.cpp" />
+    <ClCompile Include="..\xrRenderCommon\du_cone.cpp" />
+    <ClCompile Include="..\xrRenderCommon\du_cylinder.cpp" />
+    <ClCompile Include="..\xrRenderCommon\du_sphere.cpp" />
+    <ClCompile Include="..\xrRenderCommon\du_sphere_part.cpp" />
+    <ClInclude Include="..\xrRenderCommon\light.h" />
+    <ClInclude Include="..\xrRenderCommon\Light_DB.h" />
+    <ClInclude Include="..\xrRenderCommon\Light_Package.h" />
+    <ClInclude Include="..\xrRender_R1\LightPPA.h" />
+    <ClInclude Include="..\xrRender_R1\LightProjector.h" />
+    <ClInclude Include="..\xrRender_R1\LightShadows.h" />
+    <ClCompile Include="..\xrRenderCommon\light.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Light_DB.cpp" />
+    <ClCompile Include="..\xrRenderCommon\Light_Package.cpp" />
+    <ClCompile Include="..\xrRender_R1\LightPPA.cpp" />
+    <ClCompile Include="..\xrRender_R1\LightProjector.cpp" />
+    <ClCompile Include="..\xrRender_R1\LightShadows.cpp" />
+    <ClCompile Include="..\xrRenderCommon\LightTrack.cpp" />
+    <ClInclude Include="..\xrRenderCommon\IRenderDetailModel.h" />
+    <ClInclude Include="..\xrRender\RenderDetailModel.h" />
+    <ClInclude Include="..\xrRenderCommon\cl_intersect.h" />
+    <ClInclude Include="..\xrRender_R1\stdafx.h" />
+    <ClInclude Include="..\xrRenderCommon\xrD3DDefs.h" />
+    <ClInclude Include="..\xrRenderCommon\xrRender_console.h" />
+    <ClCompile Include="..\xrRender_R1\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\xrRenderCommon\xrRender_console.cpp" />
+    <ClCompile Include="..\xrRender_R1\xrRender_R1.cpp" />
+    <ClCompile Include="..\xrRender_R1\script_unity_builds.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxEnvironmentRender.h" />
+    <ClInclude Include="..\xrRender\EnvironmentRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxEnvironmentRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxFontRender.h" />
+    <ClInclude Include="..\xrRender\FontRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxFontRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\ColorMapManager.h" />
+    <ClCompile Include="..\xrRenderCommon\ColorMapManager.cpp" />
+    <ClInclude Include="..\xrRenderCommon\FLOD.h" />
+    <ClInclude Include="..\xrRenderCommon\FProgressive.h" />
+    <ClInclude Include="..\xrRenderCommon\FSkinned.h" />
+    <ClInclude Include="..\xrRenderCommon\FTreeVisual.h" />
+    <ClInclude Include="..\xrRenderCommon\FVisual.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleEffect.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleEffectDef.h" />
+    <ClInclude Include="..\xrRenderCommon\ParticleGroup.h" />
+    <ClCompile Include="..\xrRenderCommon\FLOD.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FProgressive.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FSkinned.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FTreeVisual.cpp" />
+    <ClCompile Include="..\xrRenderCommon\FVisual.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleEffect.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleEffectDef.cpp" />
+    <ClCompile Include="..\xrRenderCommon\ParticleGroup.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxRainRender.h" />
+    <ClInclude Include="..\xrRender\RainRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxRainRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxObjectSpaceRender.h" />
+    <ClInclude Include="..\xrRender\ObjectSpaceRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxObjectSpaceRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxThunderboltRender.h" />
+    <ClInclude Include="..\xrRender\ThunderboltRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxThunderboltRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxThunderboltDescRender.h" />
+    <ClInclude Include="..\xrRender\ThunderboltDescRender.h" />
+    <ClCompile Include="..\xrRenderCommon\dxThunderboltDescRender.cpp" />
+    <ClInclude Include="..\xrRenderCommon\LightTrack.h" />
+    <ClInclude Include="..\xrRenderCommon\ModelPool.h" />
+    <ClCompile Include="..\xrRenderCommon\ModelPool.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxWallMarkArray.h" />
+    <ClInclude Include="..\xrRender\WallMarkArray.h" />
+    <ClCompile Include="..\xrRenderCommon\dxWallMarkArray.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxRenderFactory.h" />
+    <ClInclude Include="..\xrRender\RenderFactory.h" />
+    <ClCompile Include="..\xrRenderCommon\dxRenderFactory.cpp" />
+    <ClInclude Include="..\xrRenderCommon\dxUISequenceVideoItem.h" />
+    <ClInclude Include="..\xrRender\UISequenceVideoItem.h" />
+    <ClCompile Include="..\xrRenderCommon\dxUISequenceVideoItem.cpp" />
+    <ClInclude Include="..\xrRenderDX9\dx9r_constants_cache.h" />
+    <ClInclude Include="..\xrRenderCommon\r_constants_cache.h" />
+    <ClCompile Include="..\xrRenderDX9\dx9r_constants_cache.cpp" />
+    <ClInclude Include="..\xrRenderCommon\stats_manager.h" />
+    <ClCompile Include="..\xrRenderCommon\stats_manager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rd-party\DX_Err\DX_Err.vcxproj">
+      <Project>{0a652e40-2461-4d29-89c2-1ebcdd9bd804}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_luabind\lib_luabind.vcxproj">
+      <Project>{b3b565de-5d50-4251-959d-5b09b461ef5e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_luajit\lib_luajit.vcxproj">
+      <Project>{a0cefae2-ce6b-458c-b52d-d155d2f48464}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_ogg\lib_ogg.vcxproj">
+      <Project>{73594edb-5910-44b9-92f2-aa037b1df649}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_openal\lib_openal.vcxproj">
+      <Project>{319a671f-0a53-4033-bf4f-b3b39f93ac0e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_theora\lib_theora.vcxproj">
+      <Project>{43062536-ee60-4446-b82a-16ba2f328065}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbisfile\lib_vorbisfile.vcxproj">
+      <Project>{13555dd7-07f4-49fa-9e61-aeb7497ba146}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbis\lib_vorbis.vcxproj">
+      <Project>{89b3d345-157b-49ed-9885-210c6e7997ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrAPI\xrAPI.vcxproj">
+      <Project>{4b4e5add-c3aa-4aad-9d02-372883d9a2c0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCDB\xrCDB.vcxproj">
+      <Project>{208cdf2e-6a3a-441d-8a8d-a9f1f7cd1260}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCore\xrCore.vcxproj">
+      <Project>{233ed8a8-5b8e-4bbd-93ce-4c9405760e6a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCPU_Pipe\xrCPU_Pipe.vcxproj">
+      <Project>{6546ea24-3b5e-48b0-adb6-48d8d478ae9d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrEngine\xrEngine.vcxproj">
+      <Project>{700eff97-ee69-4bde-8925-de202e74ff33}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrNetServer\xrNetServer.vcxproj">
+      <Project>{1ce1d272-7883-4dba-84ec-40ad9aa56f40}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrParticles\xrParticles.vcxproj">
+      <Project>{8edb6bf7-a03b-4469-b2eb-37efeae2e04b}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrSound\xrSound.vcxproj">
+      <Project>{0bb96384-241b-49fb-9495-7bf5f38bae12}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

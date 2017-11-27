@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{90536AF6-3D49-4774-A80A-4FAD8E3C1568}</ProjectGuid>
+    <RootNamespace>xrEngine</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>vfw32.lib;libogg.lib;libtheora.lib;d3dx9.lib;d3d9.lib;dinput8.lib;dxguid.lib;shlwapi.lib;xrSound.lib;xrNetServer.lib;winmm.lib;luabind.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;openal32.lib;dsound.lib;xrCore.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;dxerr_.lib;ws2_32.lib;lua51.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>vfw32.lib;libogg.lib;libtheora.lib;d3dx9.lib;d3d9.lib;dinput8.lib;dxguid.lib;shlwapi.lib;xrSound.lib;xrNetServer.lib;winmm.lib;luabind.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;openal32.lib;dsound.lib;xrCore.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;dxerr_.lib;ws2_32.lib;lua51.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>vfw32.lib;libogg.lib;libtheora.lib;d3dx9.lib;d3d9.lib;dinput8.lib;dxguid.lib;shlwapi.lib;xrSound.lib;xrNetServer.lib;winmm.lib;luabind.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;openal32.lib;dsound.lib;xrCore.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;dxerr_.lib;ws2_32.lib;lua51.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalDependencies>vfw32.lib;libogg.lib;libtheora.lib;d3dx9.lib;d3d9.lib;dinput8.lib;dxguid.lib;shlwapi.lib;xrSound.lib;xrNetServer.lib;winmm.lib;luabind.lib;xrCDB.lib;xrAPI.lib;libvorbisfile.lib;libvorbis.lib;openal32.lib;dsound.lib;xrCore.lib;version.lib;dbghelp.lib;faultrep.lib;psapi.lib;dxerr_.lib;ws2_32.lib;lua51.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="ai_script_lua_extension.h" />
+    <ClInclude Include="ai_script_lua_space.h" />
+    <ClInclude Include="ai_script_space.h" />
+    <ClInclude Include="bone.h" />
+    <ClInclude Include="CameraBase.h" />
+    <ClInclude Include="CameraDefs.h" />
+    <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="cf_dynamic_mesh.h" />
+    <ClInclude Include="cl_intersect.h" />
+    <ClInclude Include="CustomHUD.h" />
+    <ClInclude Include="dedicated_server_only.h" />
+    <ClInclude Include="defines.h" />
+    <ClInclude Include="device.h" />
+    <ClInclude Include="doug_lea_memory_allocator.h" />
+    <ClInclude Include="edit_actions.h" />
+    <ClInclude Include="Effector.h" />
+    <ClInclude Include="EffectorPP.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="EngineAPI.h" />
+    <ClInclude Include="EnnumerateVertices.h" />
+    <ClInclude Include="envelope.h" />
+    <ClInclude Include="Environment.h" />
+    <ClInclude Include="EventAPI.h" />
+    <ClInclude Include="FDemoPlay.h" />
+    <ClInclude Include="FDemoRecord.h" />
+    <ClInclude Include="Feel_Sound.h" />
+    <ClInclude Include="Feel_Touch.h" />
+    <ClInclude Include="Feel_Vision.h" />
+    <ClInclude Include="Fmesh.h" />
+    <ClInclude Include="GameFont.h" />
+    <ClInclude Include="GameMtlLib.h" />
+    <ClInclude Include="ICollidable.h" />
+    <ClInclude Include="IGame_Level.h" />
+    <ClInclude Include="IGame_ObjectPool.h" />
+    <ClInclude Include="IGame_Persistent.h" />
+    <ClInclude Include="IInputReceiver.h" />
+    <ClInclude Include="IObjectPhysicsCollision.h" />
+    <ClInclude Include="IPHdebug.h" />
+    <ClInclude Include="IPhysicsGeometry.h" />
+    <ClInclude Include="IPhysicsShell.h" />
+    <ClInclude Include="IRenderable.h" />
+    <ClInclude Include="ISheduled.h" />
+    <ClInclude Include="LightAnimLibrary.h" />
+    <ClInclude Include="line_editor.h" />
+    <ClInclude Include="line_edit_control.h" />
+    <ClInclude Include="MbHelpers.h" />
+    <ClInclude Include="motion.h" />
+    <ClInclude Include="mp_logging.h" />
+    <ClInclude Include="ObjectAnimator.h" />
+    <ClInclude Include="ObjectDump.h" />
+    <ClInclude Include="perlin.h" />
+    <ClInclude Include="Properties.h" />
+    <ClInclude Include="PS_instance.h" />
+    <ClInclude Include="pure.h" />
+    <ClInclude Include="pure_relcase.h" />
+    <ClInclude Include="Rain.h" />
+    <ClInclude Include="Render.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="Shader_xrLC.h" />
+    <ClInclude Include="SkeletonMotionDefs.h" />
+    <ClInclude Include="SkeletonMotions.h" />
+    <ClInclude Include="StatGraph.h" />
+    <ClInclude Include="Stats.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="std_classes.h" />
+    <ClInclude Include="Text_Console.h" />
+    <ClInclude Include="thunderbolt.h" />
+    <ClInclude Include="tntQAVI.h" />
+    <ClInclude Include="vis_common.h" />
+    <ClInclude Include="WaveForm.h" />
+    <ClInclude Include="xrHemisphere.h" />
+    <ClInclude Include="xrImage_Resampler.h" />
+    <ClInclude Include="xrLevel.h" />
+    <ClInclude Include="xrSheduler.h" />
+    <ClInclude Include="xrTheora_Stream.h" />
+    <ClInclude Include="xrTheora_Surface.h" />
+    <ClInclude Include="xr_collide_form.h" />
+    <ClInclude Include="xr_efflensflare.h" />
+    <ClInclude Include="xr_input.h" />
+    <ClInclude Include="xr_input_xinput.h" />
+    <ClInclude Include="XR_IOConsole.h" />
+    <ClInclude Include="xr_ioc_cmd.h" />
+    <ClInclude Include="xr_object.h" />
+    <ClInclude Include="xr_object_list.h" />
+    <ClInclude Include="x_ray.h" />
+    <ClInclude Include="_d3d_extensions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ai_script_lua_debug.cpp" />
+    <ClCompile Include="ai_script_lua_extension.cpp" />
+    <ClCompile Include="bone.cpp" />
+    <ClCompile Include="CameraBase.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="cf_dynamic_mesh.cpp" />
+    <ClCompile Include="CustomHUD.cpp" />
+    <ClCompile Include="defines.cpp" />
+    <ClCompile Include="device.cpp" />
+    <ClCompile Include="Device_create.cpp" />
+    <ClCompile Include="Device_destroy.cpp" />
+    <ClCompile Include="Device_Initialize.cpp" />
+    <ClCompile Include="Device_Misc.cpp" />
+    <ClCompile Include="Device_overdraw.cpp" />
+    <ClCompile Include="Device_wndproc.cpp" />
+    <ClCompile Include="doug_lea_memory_allocator.c" />
+    <ClCompile Include="edit_actions.cpp" />
+    <ClCompile Include="Effector.cpp" />
+    <ClCompile Include="EffectorPP.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="EngineAPI.cpp" />
+    <ClCompile Include="Envelope.cpp" />
+    <ClCompile Include="Environment.cpp" />
+    <ClCompile Include="Environment_misc.cpp" />
+    <ClCompile Include="Environment_render.cpp" />
+    <ClCompile Include="EventAPI.cpp" />
+    <ClCompile Include="FDemoPlay.cpp" />
+    <ClCompile Include="FDemoRecord.cpp" />
+    <ClCompile Include="Feel_Touch.cpp" />
+    <ClCompile Include="Feel_Vision.cpp" />
+    <ClCompile Include="fmesh.cpp" />
+    <ClCompile Include="GameFont.cpp" />
+    <ClCompile Include="GameMtlLib.cpp" />
+    <ClCompile Include="GameMtlLib_Engine.cpp" />
+    <ClCompile Include="ICollidable.cpp" />
+    <ClCompile Include="IGame_Level.cpp" />
+    <ClCompile Include="IGame_Level_check_textures.cpp" />
+    <ClCompile Include="IGame_ObjectPool.cpp" />
+    <ClCompile Include="IGame_Persistent.cpp" />
+    <ClCompile Include="IInputReceiver.cpp" />
+    <ClCompile Include="interp.cpp" />
+    <ClCompile Include="IRenderable.cpp" />
+    <ClCompile Include="ISheduled.cpp" />
+    <ClCompile Include="LightAnimLibrary.cpp" />
+    <ClCompile Include="line_editor.cpp" />
+    <ClCompile Include="line_edit_control.cpp" />
+    <ClCompile Include="mailSlot.cpp" />
+    <ClCompile Include="MbHelpers.cpp" />
+    <ClCompile Include="motion.cpp" />
+    <ClCompile Include="ObjectAnimator.cpp" />
+    <ClCompile Include="ObjectDump.cpp" />
+    <ClCompile Include="perlin.cpp" />
+    <ClCompile Include="phdebug.cpp" />
+    <ClCompile Include="PS_instance.cpp" />
+    <ClCompile Include="pure.cpp" />
+    <ClCompile Include="pure_relcase.cpp" />
+    <ClCompile Include="Rain.cpp" />
+    <ClCompile Include="Render.cpp" />
+    <ClCompile Include="SkeletonMotions.cpp" />
+    <ClCompile Include="StatGraph.cpp" />
+    <ClCompile Include="Stats.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Text_Console.cpp" />
+    <ClCompile Include="Text_Console_WndProc.cpp" />
+    <ClCompile Include="thunderbolt.cpp" />
+    <ClCompile Include="tntQAVI.cpp" />
+    <ClCompile Include="xrHemisphere.cpp" />
+    <ClCompile Include="xrImage_Resampler.cpp" />
+    <ClCompile Include="xrSheduler.cpp" />
+    <ClCompile Include="xrTheora_Stream.cpp" />
+    <ClCompile Include="xrTheora_Surface.cpp" />
+    <ClCompile Include="xr_collide_form.cpp" />
+    <ClCompile Include="xr_efflensflare.cpp" />
+    <ClCompile Include="Xr_input.cpp" />
+    <ClCompile Include="xr_input_xinput.cpp" />
+    <ClCompile Include="XR_IOConsole.cpp" />
+    <ClCompile Include="XR_IOConsole_callback.cpp" />
+    <ClCompile Include="XR_IOConsole_control.cpp" />
+    <ClCompile Include="XR_IOConsole_get.cpp" />
+    <ClCompile Include="xr_ioc_cmd.cpp" />
+    <ClCompile Include="xr_object.cpp" />
+    <ClCompile Include="xr_object_list.cpp" />
+    <ClCompile Include="x_ray.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="splash_xrcs_en.bmp" />
+    <Image Include="x_ray_li.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rd-party\DX_Err\DX_Err.vcxproj">
+      <Project>{0a652e40-2461-4d29-89c2-1ebcdd9bd804}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_luajit\lib_luajit.vcxproj">
+      <Project>{a0cefae2-ce6b-458c-b52d-d155d2f48464}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_ogg\lib_ogg.vcxproj">
+      <Project>{73594edb-5910-44b9-92f2-aa037b1df649}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_openal\lib_openal.vcxproj">
+      <Project>{319a671f-0a53-4033-bf4f-b3b39f93ac0e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_theora\lib_theora.vcxproj">
+      <Project>{43062536-ee60-4446-b82a-16ba2f328065}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbisfile\lib_vorbisfile.vcxproj">
+      <Project>{13555dd7-07f4-49fa-9e61-aeb7497ba146}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\3rd-party\lib_vorbis\lib_vorbis.vcxproj">
+      <Project>{89b3d345-157b-49ed-9885-210c6e7997ba}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrAPI\xrAPI.vcxproj">
+      <Project>{4b4e5add-c3aa-4aad-9d02-372883d9a2c0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCDB\xrCDB.vcxproj">
+      <Project>{208cdf2e-6a3a-441d-8a8d-a9f1f7cd1260}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrCore\xrCore.vcxproj">
+      <Project>{233ed8a8-5b8e-4bbd-93ce-4c9405760e6a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrNetServer\xrNetServer.vcxproj">
+      <Project>{1ce1d272-7883-4dba-84ec-40ad9aa56f40}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\xrSound\xrSound.vcxproj">
+      <Project>{0bb96384-241b-49fb-9495-7bf5f38bae12}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

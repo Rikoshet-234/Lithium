@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="clsid.cpp" />
+    <ClCompile Include="cpuid.cpp" />
+    <ClCompile Include="crc32.cpp" />
+    <ClCompile Include="doug_lea_allocator.cpp" />
+    <ClCompile Include="dump_string.cpp" />
+    <ClCompile Include="FileSystem.cpp" />
+    <ClCompile Include="file_stream_reader.cpp" />
+    <ClCompile Include="FS.cpp" />
+    <ClCompile Include="FTimer.cpp" />
+    <ClCompile Include="LocatorAPI.cpp" />
+    <ClCompile Include="LocatorAPI_defs.cpp" />
+    <ClCompile Include="log.cpp" />
+    <ClCompile Include="LzHuf.cpp" />
+    <ClCompile Include="memory_allocation_stats.cpp" />
+    <ClCompile Include="memory_monitor.cpp" />
+    <ClCompile Include="memory_usage.cpp" />
+    <ClCompile Include="NET_utils.cpp" />
+    <ClCompile Include="os_clipboard.cpp" />
+    <ClCompile Include="ptmalloc3\malloc.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="ptmalloc3\sysdeps\win32\win32.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="rt_compressor.cpp" />
+    <ClCompile Include="rt_compressor9.cpp" />
+    <ClCompile Include="rt_lzo1x_1.cpp" />
+    <ClCompile Include="rt_lzo1x_9x.cpp" />
+    <ClCompile Include="rt_lzo1x_d1.cpp" />
+    <ClCompile Include="rt_lzo1x_d2.cpp" />
+    <ClCompile Include="rt_lzo1x_d3.cpp" />
+    <ClCompile Include="rt_lzo_init.cpp" />
+    <ClCompile Include="stacktrace_collector.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stream_reader.cpp" />
+    <ClCompile Include="string_concatenations.cpp" />
+    <ClCompile Include="xrCore.cpp" />
+    <ClCompile Include="xrDebugNew.cpp" />
+    <ClCompile Include="xrMemory.cpp" />
+    <ClCompile Include="xrMemory_align.cpp" />
+    <ClCompile Include="xrMemory_debug.cpp" />
+    <ClCompile Include="xrMemory_POOL.cpp" />
+    <ClCompile Include="xrMemory_subst_msvc.cpp" />
+    <ClCompile Include="xrsharedmem.cpp" />
+    <ClCompile Include="xrstring.cpp" />
+    <ClCompile Include="Xr_ini.cpp" />
+    <ClCompile Include="xr_shared.cpp" />
+    <ClCompile Include="xr_trims.cpp" />
+    <ClCompile Include="_compressed_normal.cpp" />
+    <ClCompile Include="_math.cpp" />
+    <ClCompile Include="_sphere.cpp" />
+    <ClCompile Include="_std_extensions.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="buffer_vector.h" />
+    <ClInclude Include="buffer_vector_inline.h" />
+    <ClInclude Include="clsid.h" />
+    <ClInclude Include="conv.h" />
+    <ClInclude Include="cpuid.h" />
+    <ClInclude Include="doug_lea_allocator.h" />
+    <ClInclude Include="dump_string.h" />
+    <ClInclude Include="fastdelegate.h" />
+    <ClInclude Include="FileSystem.h" />
+    <ClInclude Include="file_stream_reader.h" />
+    <ClInclude Include="FixedMap.h" />
+    <ClInclude Include="FixedSet.h" />
+    <ClInclude Include="FixedVector.h" />
+    <ClInclude Include="FS.h" />
+    <ClInclude Include="FS_internal.h" />
+    <ClInclude Include="FTimer.h" />
+    <ClInclude Include="intrusive_ptr.h" />
+    <ClInclude Include="LocatorAPI.h" />
+    <ClInclude Include="LocatorAPI_defs.h" />
+    <ClInclude Include="log.h" />
+    <ClInclude Include="lzhuf.h" />
+    <ClInclude Include="make_string.h" />
+    <ClInclude Include="memory_allocator_options.h" />
+    <ClInclude Include="memory_monitor.h" />
+    <ClInclude Include="net_utils.h" />
+    <ClInclude Include="os_clipboard.h" />
+    <ClInclude Include="ptmalloc3\malloc-2.8.3.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="rt_compressor.h" />
+    <ClInclude Include="rt_config1x.h" />
+    <ClInclude Include="rt_lzo1x.h" />
+    <ClInclude Include="rt_lzoconf.h" />
+    <ClInclude Include="rt_lzodefs.h" />
+    <ClInclude Include="rt_lzo_conf.h" />
+    <ClInclude Include="rt_lzo_config.h" />
+    <ClInclude Include="rt_lzo_ptr.h" />
+    <ClInclude Include="rt_miniacc.h" />
+    <ClInclude Include="stacktrace_collector.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="stream_reader.h" />
+    <ClInclude Include="string_concatenations.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="xrCore.h" />
+    <ClInclude Include="xrCore_platform.h" />
+    <ClInclude Include="xrDebug.h" />
+    <ClInclude Include="xrDebug_macros.h" />
+    <ClInclude Include="xrMemory.h" />
+    <ClInclude Include="xrMemory_align.h" />
+    <ClInclude Include="xrMEMORY_POOL.h" />
+    <ClInclude Include="xrMemory_pure.h" />
+    <ClInclude Include="xrMemory_subst_msvc.h" />
+    <ClInclude Include="xrPool.h" />
+    <ClInclude Include="xrsharedmem.h" />
+    <ClInclude Include="xrstring.h" />
+    <ClInclude Include="xr_ini.h" />
+    <ClInclude Include="xr_resource.h" />
+    <ClInclude Include="xr_shared.h" />
+    <ClInclude Include="xr_trims.h" />
+    <ClInclude Include="xr_writer.h" />
+    <ClInclude Include="_bitwise.h" />
+    <ClInclude Include="_color.h" />
+    <ClInclude Include="_compressed_normal.h" />
+    <ClInclude Include="_cylinder.h" />
+    <ClInclude Include="_fbox.h" />
+    <ClInclude Include="_fbox2.h" />
+    <ClInclude Include="_flags.h" />
+    <ClInclude Include="_math.h" />
+    <ClInclude Include="_matrix.h" />
+    <ClInclude Include="_matrix33.h" />
+    <ClInclude Include="_obb.h" />
+    <ClInclude Include="_plane.h" />
+    <ClInclude Include="_plane2.h" />
+    <ClInclude Include="_quaternion.h" />
+    <ClInclude Include="_random.h" />
+    <ClInclude Include="_rect.h" />
+    <ClInclude Include="_sphere.h" />
+    <ClInclude Include="_std_extensions.h" />
+    <ClInclude Include="_stl_extensions.h" />
+    <ClInclude Include="_types.h" />
+    <ClInclude Include="_vector2.h" />
+    <ClInclude Include="_vector3d.h" />
+    <ClInclude Include="_vector3d_ext.h" />
+    <ClInclude Include="_vector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="xrCore.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rd-party\DX_Err\DX_Err.vcxproj">
+      <Project>{0a652e40-2461-4d29-89c2-1ebcdd9bd804}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>15.0</VCProjectVersion>
+    <ProjectGuid>{233ED8A8-5B8E-4BBD-93CE-4C9405760E6A}</ProjectGuid>
+    <RootNamespace>xrCore</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v141</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)..\_build_\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)..\_i10e_\$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;XRCORE_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dxerr_.lib;winmm.lib;dbghelp.lib;faultrep.lib;psapi.lib;powrprof.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;XRCORE_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;_DEBUG;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dxerr_.lib;winmm.lib;dbghelp.lib;faultrep.lib;psapi.lib;powrprof.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;XRCORE_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;NDEBUG;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dxerr_.lib;winmm.lib;dbghelp.lib;faultrep.lib;psapi.lib;powrprof.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;XRCORE_EXPORTS;_SECURE_SCL=0;FMT_HEADER_ONLY=1;NDEBUG;RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rd-party;$(SolutionDir)3rd-party\dxsdk\include;$(SolutionDir)3rd-party\NVAPI\Include;$(SolutionDir)3rd-party\libogg\include;$(SolutionDir)3rd-party\libtheora\include;$(SolutionDir)3rd-party\fmtlib;$(SolutionDir)3rd-party\boost;$(SolutionDir)3rd-party\libvorbis\include;$(SolutionDir)3rd-party\openal\include;$(SolutionDir)3rd-party\luabind\luabind\include;$(SolutionDir)3rd-party\luajit\include;$(SolutionDir)3rd-party\imdexlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DisableSpecificWarnings>4244;4267;4996</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\$(TargetName).lib</ImportLibrary>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\_lib_\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>dxerr_.lib;winmm.lib;dbghelp.lib;faultrep.lib;psapi.lib;powrprof.lib;uuid.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

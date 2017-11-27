@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="ATI">
+      <UniqueIdentifier>{d21eb0a7-aed6-4e79-94bf-d6954119c88f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua Studio">
+      <UniqueIdentifier>{69931e03-584d-48f5-91a7-68a835bf8380}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DirectPlay">
+      <UniqueIdentifier>{25bf24d3-5f3f-4efc-967c-76670669c0ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EAX">
+      <UniqueIdentifier>{24cf61c4-7c81-44bd-813e-b68650965015}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Im-Dex Lib">
+      <UniqueIdentifier>{0b6b3ed8-a516-414c-8bf0-39a2f82e248c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NVAPI">
+      <UniqueIdentifier>{cf00705e-733b-45ef-aea2-2b53f065bb71}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\ATI\atimgpud.h">
+      <Filter>ATI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\defines.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\config.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\backend.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\engine.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\interfaces.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\library_linkage.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\world.h">
+      <Filter>Lua Studio</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\DPlay\dplay8.h">
+      <Filter>DirectPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\DPlay\dpaddr.h">
+      <Filter>DirectPlay</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\eax\eax.h">
+      <Filter>EAX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\eax\eaxac3.h">
+      <Filter>EAX</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\array_view.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\empty_type.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\fast_dynamic_cast.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\flag_set.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\flat_map.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\identity.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\is_reference_wrapper.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\mpl.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\option.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\preprocessor.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\scope_guard.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\string_ref.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\traits.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\typelist.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\uncaught_exceptions_counter.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\utility.hpp">
+      <Filter>Im-Dex Lib</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_common.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_d3dext.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_salend.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_salstart.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_sli.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_stereo.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_surround.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\NvApiDriverSettings.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvHLSLExtns.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvHLSLExtnsInternal.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvShaderExtnEnums.h">
+      <Filter>NVAPI</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Label="Globals">
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <ItemsProjectGuid>{2ea73c1c-9c51-420f-bceb-051096ec5db5}</ItemsProjectGuid>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);$(MSBuildThisFileDirectory)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ProjectCapability Include="SourceItemsFromImports" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\ATI\atimgpud.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\config.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\defines.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\backend.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\engine.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\interfaces.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\library_linkage.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\cs\lua_studio_backend\world.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\DPlay\dpaddr.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\DPlay\dplay8.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\eax\eax.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\eax\eaxac3.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\array_view.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\empty_type.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\fast_dynamic_cast.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\flag_set.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\flat_map.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\identity.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\is_reference_wrapper.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\mpl.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\option.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\preprocessor.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\scope_guard.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\string_ref.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\traits.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\typelist.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\uncaught_exceptions_counter.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\imdexlib\utility.hpp" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\NvApiDriverSettings.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_common.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_d3dext.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_salend.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_salstart.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_sli.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_stereo.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvapi_lite_surround.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvHLSLExtns.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvHLSLExtnsInternal.h" />
+    <ClInclude Include="$(MSBuildThisFileDirectory)..\3rd-party\NVAPI\Include\nvShaderExtnEnums.h" />
+  </ItemGroup>
+</Project>

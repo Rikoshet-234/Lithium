@@ -1,4 +1,0 @@
-#pragma once
-
-#cmakedefine DEBUG_CAPS
-#cmakedefine PNG_SCREENSHOTS

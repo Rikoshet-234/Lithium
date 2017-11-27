@@ -1,0 +1,58 @@
+#include <QtWidgets>
+
+#include "../xrCore/xrCore.h"
+
+#ifdef _DEBUG
+#define D3D_DEBUG_INFO
+#endif
+
+#pragma warning(disable : 4995)
+#include <d3d9.h>
+#pragma warning(default : 4995)
+
+#ifndef NO_ENGINE_API
+#ifdef ENGINE_BUILD
+#define DLL_API __declspec(dllimport)
+#define ENGINE_API __declspec(dllexport)
+#define PROTECT_API __declspec(dllexport)
+#else
+#undef DLL_API
+#define DLL_API __declspec(dllexport)
+#define ENGINE_API __declspec(dllimport)
+#define PROTECT_API __declspec(dllimport)
+#endif
+#else
+#define ENGINE_API
+#define DLL_API
+#endif // NO_ENGINE_API
+
+#define ECORE_API
+
+// Our headers
+#include "../xrEngine/engine.h"
+#include "../xrEngine/defines.h"
+
+#ifndef NO_XRLOG
+#include "../xrcore/log.h"
+#endif
+#include "../xrEngine/device.h"
+#include "../xrcore/fs.h"
+#include "../xrcdb/xrXRC.h"
+#include "../xrSound/sound.h"
+
+#include "../xrAPI/xrAPI.h"
+
+extern ENGINE_API CInifile* pGameIni;
+
+#ifndef DEBUG
+#define LUABIND_NO_ERROR_CHECKING
+#endif
+
+#if !defined(DEBUG) || defined(FORCE_NO_EXCEPTIONS)
+#define LUABIND_NO_EXCEPTIONS
+#endif
+
+#define LUABIND_DONT_COPY_STRINGS
+
+#define READ_IF_EXISTS(ltx, method, section, name, default_value) \
+    (((ltx)->line_exist(section, name)) ? ((ltx)->method(section, name)) : (default_value))
