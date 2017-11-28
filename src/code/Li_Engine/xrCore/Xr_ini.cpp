@@ -3,6 +3,8 @@
 
 #include "fs_internal.h"
 
+#define DEFAULT_IF_NOT_EXIST if (!line_exist(S, L)) return def_val;
+
 XRCORE_API CInifile const* pSettings = NULL;
 XRCORE_API CInifile const* pSettingsAuth = NULL;
 
@@ -560,7 +562,11 @@ Fvector4 CInifile::r_fvector4(LPCSTR S, LPCSTR L) const {
     return V;
 }
 
-BOOL CInifile::r_bool(LPCSTR S, LPCSTR L) const {
+BOOL CInifile::r_bool(LPCSTR S, LPCSTR L, BOOL def_val) const 
+{
+
+	DEFAULT_IF_NOT_EXIST
+
     LPCSTR C = r_string(S, L);
     VERIFY2(xr_strlen(C) <= 5,
             make_string("\"%s\" is not a valid bool value, section[%s], line[%s]", C, S, L));

@@ -20,7 +20,7 @@ extern bool shared_str_initialized;
 static BOOL bException = FALSE;
 
 #ifdef DEBUG
-#define USE_OWN_ERROR_MESSAGE_WINDOW
+//#define USE_OWN_ERROR_MESSAGE_WINDOW
 #else // DEBUG
 #define USE_OWN_MINI_DUMP
 #endif // DEBUG
@@ -144,6 +144,7 @@ void xrDebug::backend(const std::string_view expression, const std::string_view 
     error_after_dialog = true;
 
     string4096 assertion_info;
+	ZeroMemory(&assertion_info[0], 4096);
 
     gather_info(expression, description, file, line, function, assertion_info, sizeof(assertion_info), args);
 

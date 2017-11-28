@@ -118,8 +118,8 @@ public:
     Fvector3 r_fvector3(const shared_str& S, LPCSTR L) const { return r_fvector3(*S, L); }
     Fvector4 r_fvector4(LPCSTR S, LPCSTR L) const;
     Fvector4 r_fvector4(const shared_str& S, LPCSTR L) const { return r_fvector4(*S, L); }
-    BOOL r_bool(LPCSTR S, LPCSTR L) const;
-    BOOL r_bool(const shared_str& S, LPCSTR L) const { return r_bool(*S, L); }
+    BOOL r_bool(LPCSTR S, LPCSTR L, BOOL def_val = FALSE) const;
+    BOOL r_bool(const shared_str& S, LPCSTR L, BOOL def_val = FALSE) const { return r_bool(*S, L, def_val); }
     int r_token(LPCSTR S, LPCSTR L, const xr_token* token_list) const;
     BOOL r_line(LPCSTR S, int L, LPCSTR* N, LPCSTR* V) const;
     BOOL r_line(const shared_str& S, int L, LPCSTR* N, LPCSTR* V) const;

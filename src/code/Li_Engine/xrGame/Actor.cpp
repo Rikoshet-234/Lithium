@@ -199,7 +199,7 @@ CActor::CActor() : CEntityAlive(), current_ik_cam_shift(0) {
 	m_inventory_disabled = false;
 
 	// Scht.
-	m_pda_disabled = true;
+	m_pda_disabled = pSettings->r_bool("Li_GameplaySettings", "pda_enabled", TRUE);
 	// -- Scht.
 }
 
