@@ -57,6 +57,7 @@ struct BTHREAD_params {
     int Tcnt;
     build_callback* BC;
     void* BCP;
+	bool rebuildTrisRequired;
 };
 
 void MODEL::build_thread(void* params) {
@@ -64,33 +65,35 @@ void MODEL::build_thread(void* params) {
     FPU::m64r();
     BTHREAD_params P = *((BTHREAD_params*)params);
     std::lock_guard<std::recursive_mutex> lock(P.M->cs);
-    P.M->build_internal(P.V, P.Vcnt, P.T, P.Tcnt, P.BC, P.BCP);
+    P.M->build_internal(P.V, P.Vcnt, P.T, P.Tcnt, P.BC, P.BCP, P.rebuildTrisRequired);
     P.M->status = S_READY;
     // Msg						("* xrCDB: cform build completed, memory usage: %d
     // K",P.M->memory()/1024);
 }
 
-void MODEL::build(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc, void* bcp) {
-    R_ASSERT(S_INIT == status);
-    R_ASSERT((Vcnt >= 4) && (Tcnt >= 2));
+void MODEL::build(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc, void* bcp, bool rebuildTrisRequired) {
+	R_ASSERT(S_INIT == status);
+	R_ASSERT((Vcnt >= 4) && (Tcnt >= 2));
+	_initialize_cpu_thread();
+	const unsigned cpu_thrd = CPU::ID.n_threads;
 
-    _initialize_cpu_thread();
-#ifdef _EDITOR
-    build_internal(V, Vcnt, T, Tcnt, bc, bcp);
-#else
-    if (!strstr(Core.Params, "-mt_cdb")) {
-        build_internal(V, Vcnt, T, Tcnt, bc, bcp);
-        status = S_READY;
-    } else {
-        BTHREAD_params P = { this, V, Vcnt, T, Tcnt, bc, bcp };
-        thread_spawn(build_thread, "CDB-construction", 0, &P);
-        while (S_INIT == status)
-            Sleep(5);
-    }
-#endif
+	if (cpu_thrd > 1)
+	{
+		BTHREAD_params P = { this, V, Vcnt, T, Tcnt, bc, bcp, rebuildTrisRequired };
+		thread_spawn(build_thread, "CDB-construction", 0, &P);
+		while (S_INIT == status)
+		{
+			Sleep(5);
+		}
+	}
+	else
+	{
+		build_internal(V, Vcnt, T, Tcnt, bc, bcp, rebuildTrisRequired);
+		status = S_READY;
+	}
 }
 
-void MODEL::build_internal(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc, void* bcp) {
+void MODEL::build_internal(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc, void* bcp, bool rebuildTrisRequired) {
     // verts
     verts_count = Vcnt;
     verts = CALLOC(Fvector, verts_count);
@@ -99,7 +102,23 @@ void MODEL::build_internal(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callbac
     // tris
     tris_count = Tcnt;
     tris = CALLOC(TRI, tris_count);
-    std::memcpy(tris, T, tris_count * sizeof(TRI));
+
+#ifdef _M_X64
+	if (rebuildTrisRequired)
+	{
+		TRI_DEPRECATED* realT = reinterpret_cast<TRI_DEPRECATED*> (T);
+		for (int triIter = 0; triIter < tris_count; ++triIter)
+		{
+			TRI_DEPRECATED& oldTri = realT[triIter];
+			TRI& newTri = tris[triIter];
+			newTri = oldTri;
+		}
+	}
+	else
+#endif
+	{
+		std::memcpy(tris, T, tris_count * sizeof(TRI));
+	}
 
     // callback
     if (bc)
@@ -126,7 +145,7 @@ void MODEL::build_internal(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callbac
     OPCODECREATE OPCC;
     OPCC.NbTris = tris_count;
     OPCC.NbVerts = verts_count;
-    OPCC.Tris = (unsigned*)temp_tris;
+    OPCC.Tris = temp_tris;
     OPCC.Verts = (Point*)verts;
     OPCC.Rules = SPLIT_COMPLETE | SPLIT_SPLATTERPOINTS | SPLIT_GEOMCENTER;
     OPCC.NoLeaf = true;
@@ -151,8 +170,8 @@ u32 MODEL::memory() {
         Msg("! xrCDB: model still isn't ready");
         return 0;
     }
-    u32 V = verts_count * sizeof(Fvector);
-    u32 T = tris_count * sizeof(TRI);
+    const u32 V = verts_count * sizeof(Fvector);
+    const u32 T = tris_count * sizeof(TRI);
     return tree->GetUsedBytes() + V + T + sizeof(*this) + sizeof(*tree);
 }
 

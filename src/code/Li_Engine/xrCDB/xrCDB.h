@@ -1,13 +1,5 @@
-#ifndef XRCDB_H
-#define XRCDB_H
+#pragma once
 
-//#pragma once
-// The following ifdef block is the standard way of creating macros which make exporting
-// from a DLL simpler. All files within this DLL are compiled with the XRCDB_EXPORTS
-// symbol defined on the command line. this symbol should not be defined on any project
-// that uses this DLL. This way any other project whose source files include this file see
-// XRCDB_API functions as being imported from a DLL, wheras this DLL sees symbols
-// defined with this macro as being exported.
 #ifdef XRCDB_EXPORTS
 #define XRCDB_API __declspec(dllexport)
 #else
@@ -23,24 +15,83 @@ class AABBNoLeafNode;
 
 #pragma pack(push, 8)
 namespace CDB {
-// Triangle
-class XRCDB_API TRI //*** 16 bytes total (was 32 :)
+	// Triangle for x86
+#pragma pack(push, 1)
+#if defined(_M_X64)
+	class XRCDB_API TRI_DEPRECATED						//*** 16 bytes total (was 32 :)
 {
-public:
-    u32 verts[3]; // 3*4 = 12b
-    union {
-        u32 dummy; // 4b
-        struct {
-            u32 material : 14;        //
-            u32 suppress_shadows : 1; //
-            u32 suppress_wm : 1;      //
-            u32 sector : 16;          //
-        };
-    };
+	public:
+		u32				verts[3];		// 3*4 = 12b
+		union {
+			u32			dummy;				// 4b
+			struct {
+				u32		material : 14;		// 
+				u32		suppress_shadows : 1;	// 
+				u32		suppress_wm : 1;		// 
+				u32		sector : 16;			// 
+			};
+		};
+	public:
+		IC u32			IDvert(u32 ID) { return verts[ID]; }
+	};
+#endif
+#pragma pack (pop)
+	// Triangle
+	class XRCDB_API TRI						//*** 24 bytes total
+	{
+	public:
+		u32				verts[3];		// 3*4 = 12b
+		union
+		{
+			size_t			dummy;				// 4b
+			struct
+			{
+				size_t		material : 14;		// 
+				size_t		suppress_shadows : 1;	// 
+				size_t		suppress_wm : 1;		// 
+				size_t		sector : 16;			// 
+#if defined(_M_X64)
+				size_t		dumb : 32;
+#endif
+			};
+			struct
+			{
+				u32 dummy_low;
+				u32 dummy_high;
+			};
+		};
 
-public:
-    IC u32 IDvert(u32 ID) { return verts[ID]; }
-};
+#if defined(_M_X64)
+		TRI(TRI_DEPRECATED& oldTri)
+		{
+			verts[0] = oldTri.verts[0];
+			verts[1] = oldTri.verts[1];
+			verts[2] = oldTri.verts[2];
+			dummy = oldTri.dummy;
+			dumb = 0;
+		}
+
+		TRI()
+		{
+			verts[0] = 0;
+			verts[1] = 0;
+			verts[2] = 0;
+			dummy = 0;
+		}
+
+		TRI& operator= (const TRI_DEPRECATED& oldTri)
+		{
+			verts[0] = oldTri.verts[0];
+			verts[1] = oldTri.verts[1];
+			verts[2] = oldTri.verts[2];
+			dummy = oldTri.dummy;
+			dumb = 0;
+			return *this;
+		}
+#endif
+	public:
+		IC u32			IDvert(u32 ID) { return verts[ID]; }
+	};
 
 // Build callback
 typedef void __stdcall build_callback(Fvector* V, int Vcnt, TRI* T, int Tcnt, void* params);
@@ -81,8 +132,8 @@ public:
 
     static void build_thread(void*);
     void build_internal(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc = NULL,
-                        void* bcp = NULL);
-    void build(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc = NULL, void* bcp = NULL);
+                        void* bcp = NULL, bool rebuildTrisRequired = true);
+    void build(Fvector* V, int Vcnt, TRI* T, int Tcnt, build_callback* bc = NULL, void* bcp = NULL, bool rebuildTrisRequired = true);
     u32 memory();
 };
 
@@ -90,13 +141,21 @@ public:
 struct XRCDB_API RESULT {
     Fvector verts[3];
     union {
-        u32 dummy; // 4b
+        size_t dummy; // 4b
         struct {
-            u32 material : 14;        //
-            u32 suppress_shadows : 1; //
-            u32 suppress_wm : 1;      //
-            u32 sector : 16;          //
+            size_t material : 14;        //
+            size_t suppress_shadows : 1; //
+            size_t suppress_wm : 1;      //
+            size_t sector : 16;          //
+#if defined(_M_X64)
+			u64	stub : 32;
+#endif
         };
+		struct
+		{
+			u32 dummy_h;
+			u32 dummy_l;
+		};
     };
     int id;
     float range;
@@ -139,7 +198,7 @@ public:
     ICF RESULT* r_end() { return &*rd.end(); };
     RESULT& r_add();
     void r_free();
-    ICF int r_count() { return rd.size(); };
+    ICF size_t r_count() { return rd.size(); };
     ICF void r_clear() { rd.clear(); };
     ICF void r_clear_compact() { rd.clear(); };
 };
@@ -154,10 +213,10 @@ class XRCDB_API Collector {
 public:
     void add_face(const Fvector& v0, const Fvector& v1, const Fvector& v2, u16 material,
                   u16 sector);
-    void add_face_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, u32 dummy);
+    void add_face_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, size_t dummy);
     void add_face_packed(const Fvector& v0, const Fvector& v1, const Fvector& v2, u16 material,
                          u16 sector, float eps = EPS);
-    void add_face_packed_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, u32 dummy,
+    void add_face_packed_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, size_t dummy,
                            float eps = EPS);
     void remove_duplicate_T();
     void calc_adjacency(xr_vector<u32>& dest);
@@ -207,7 +266,7 @@ public:
 
     void add_face(const Fvector& v0, const Fvector& v1, const Fvector& v2, u16 material, u16 sector,
                   u32 flags);
-    void add_face_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, u32 dummy, u32 flags);
+    void add_face_D(const Fvector& v0, const Fvector& v1, const Fvector& v2, size_t dummy, u32 flags);
 
     xr_vector<Fvector>& getV_Vec() { return verts; }
     Fvector* getV() { return &*verts.begin(); }
@@ -220,6 +279,4 @@ public:
 };
 #pragma warning(pop)
 }; // namespace CDB
-
 #pragma pack(pop)
-#endif
