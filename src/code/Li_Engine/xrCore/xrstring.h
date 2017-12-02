@@ -171,12 +171,10 @@ IC int xr_strcmp(const shared_str& a, const shared_str& b) {
         return xr_strcmp(*a, *b);
 }
 
-[[deprecated]]
 inline void xr_strlwr(xr_string& src) {
     _strlwr(src.data());
 }
 
-[[deprecated]]
 inline void xr_strlwr(std::string& src) {
     _strlwr(src.data());
 }

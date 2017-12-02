@@ -128,7 +128,6 @@ IC s64 _abs(s64 x) { return (x >= 0) ? x : s64(-x); }
 // string management
 
 // return pointer to ".ext"
-[[deprecated]]
 inline char* strext(const char* S) { return (char*)strrchr(S, '.'); }
 
 inline bool hasExtension(const std::string_view str) {
@@ -139,7 +138,6 @@ inline std::string_view::size_type findExtPos(const std::string_view str) {
     return str.find_last_of('.');
 }
 
-[[deprecated]]
 IC u32 xr_strlen(const char* S) { return (u32)strlen(S); }
 
 IC char* xr_strlwr(char* S) { return strlwr(S); }

@@ -14,7 +14,6 @@ void XRCORE_API Log(LPCSTR msg, const Fmatrix& dop);
 void XRCORE_API LogWinErr(LPCSTR msg, long err_code);
 
 template <typename... Args>
-[[deprecated]]
 void Msg(const char* format, const Args&... args) {
     string2048 buf;
     const int sz = snprintf(buf, sizeof(buf) - 1, format, args...);

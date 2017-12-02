@@ -450,5 +450,6 @@ _quaternion<T>& _quaternion<T>::set(const _matrix<T>& M) {
 //----------------------------------------------------------------------------------------------
 // Deprecate some features
 #ifndef XRCORE_EXPORTS
-#pragma deprecated("MIN", "MAX", "ABS")
+//#pragma deprecated("MIN", "MAX", "ABS")
+// It makes me unhappy. Dex, You made everything worse than expected!!! @Schtainhardt
 #endif

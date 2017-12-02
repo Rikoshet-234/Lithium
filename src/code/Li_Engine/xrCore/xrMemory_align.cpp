@@ -81,27 +81,30 @@ void* __stdcall xr_aligned_malloc(size_t size, size_t alignment) {
  *******************************************************************************/
 
 void* __stdcall xr_aligned_offset_malloc(size_t size, size_t align, size_t offset) {
-    uintptr_t ptr, retptr, gap;
+	uintptr_t ptr, retptr, gap;
 
-    if (!IS_2_POW_N(align)) {
-        errno = EINVAL;
-        return NULL;
-    }
-    if (offset >= size && offset != 0)
-        size = offset + 1;
+	if (!IS_2_POW_N(align))
+	{
+		errno = EINVAL;
+		return NULL;
+	}
+	if (offset >= size && offset != 0)
+		size = offset + 1;
 
-    align = (align > PTR_SZ ? align : PTR_SZ) - 1;
+	align = (align > PTR_SZ ? align : PTR_SZ) - 1;
 
-    /* gap = number of bytes needed to round up offset to align with PTR_SZ*/
-    gap = (0 - offset) & (PTR_SZ - 1);
+	/* gap = number of bytes needed to round up offset to align with PTR_SZ*/
+	gap = (0 - offset)&(PTR_SZ - 1);
 
-    if ((ptr = (uintptr_t)malloc(PTR_SZ + gap + align + size)) == (uintptr_t)NULL)
-        return NULL;
+	ptr = (uintptr_t)malloc(PTR_SZ + gap + align + size);
 
-    retptr = ((ptr + PTR_SZ + gap + align + offset) & ~align) - offset;
-    ((uintptr_t*)(retptr - gap))[-1] = ptr;
+	if (ptr == NULL)
+		return NULL;
 
-    return (void*)retptr;
+	retptr = ((ptr + PTR_SZ + gap + align + offset)&~align) - offset;
+	((uintptr_t *)(retptr - gap))[-1] = ptr;
+
+	return (void *)retptr;
 }
 
 /***
